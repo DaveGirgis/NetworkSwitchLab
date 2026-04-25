@@ -12,29 +12,31 @@
         <meta name="author" content="Network Training Lab">
       
       
-        <link rel="canonical" href="https://DaveGirgis.github.io/NetworkSwitchLab/">
+        <link rel="canonical" href="https://DaveGirgis.github.io/NetworkSwitchLab/session3/reference/commands/">
       
       
+        <link rel="prev" href="../../tasks/verify/">
       
-        <link rel="next" href="session2/">
+      
+        <link rel="next" href="../troubleshooting/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Network Training Labs</title>
+        <title>Command Reference - Network Training Labs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#network-training-labs" class="md-skip">
+        <a href="#command-reference" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Network Training Labs" class="md-header__button md-logo" aria-label="Network Training Labs" data-md-component="logo">
+    <a href="../../.." title="Network Training Labs" class="md-header__button md-logo" aria-label="Network Training Labs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Command Reference
             
           </span>
         </div>
@@ -221,11 +223,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -246,7 +246,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="session1/index.md" class="md-tabs__link">
+        <a href="../../../session1/index.md" class="md-tabs__link">
           
   
   
@@ -268,7 +268,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="session2/" class="md-tabs__link">
+        <a href="../../../session2/" class="md-tabs__link">
           
   
   
@@ -286,11 +286,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="session3/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -328,7 +330,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Network Training Labs" class="md-nav__button md-logo" aria-label="Network Training Labs" data-md-component="logo">
+    <a href="../../.." title="Network Training Labs" class="md-nav__button md-logo" aria-label="Network Training Labs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -355,37 +357,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -401,59 +376,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#lab-series-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lab Series Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#platform-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Platform Requirements
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-use-these-labs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How to Use These Labs
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -529,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session1/index.md" class="md-nav__link">
+      <a href="../../../session1/index.md" class="md-nav__link">
         
   
   
@@ -557,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session1/topology.md" class="md-nav__link">
+      <a href="../../../session1/topology.md" class="md-nav__link">
         
   
   
@@ -585,7 +507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session1/addressing.md" class="md-nav__link">
+      <a href="../../../session1/addressing.md" class="md-nav__link">
         
   
   
@@ -677,7 +599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session1/tasks/task1.md" class="md-nav__link">
+      <a href="../../../session1/tasks/task1.md" class="md-nav__link">
         
   
   
@@ -705,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session1/tasks/task2.md" class="md-nav__link">
+      <a href="../../../session1/tasks/task2.md" class="md-nav__link">
         
   
   
@@ -733,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session1/tasks/task3.md" class="md-nav__link">
+      <a href="../../../session1/tasks/task3.md" class="md-nav__link">
         
   
   
@@ -761,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session1/tasks/task4.md" class="md-nav__link">
+      <a href="../../../session1/tasks/task4.md" class="md-nav__link">
         
   
   
@@ -789,7 +711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session1/tasks/verify.md" class="md-nav__link">
+      <a href="../../../session1/tasks/verify.md" class="md-nav__link">
         
   
   
@@ -883,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session1/reference/commands.md" class="md-nav__link">
+      <a href="../../../session1/reference/commands.md" class="md-nav__link">
         
   
   
@@ -911,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session1/reference/troubleshooting.md" class="md-nav__link">
+      <a href="../../../session1/reference/troubleshooting.md" class="md-nav__link">
         
   
   
@@ -987,7 +909,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="session2/" class="md-nav__link ">
+            <a href="../../../session2/" class="md-nav__link ">
               
   
   
@@ -1031,7 +953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session2/introduction/" class="md-nav__link">
+      <a href="../../../session2/introduction/" class="md-nav__link">
         
   
   
@@ -1059,7 +981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session2/topology/" class="md-nav__link">
+      <a href="../../../session2/topology/" class="md-nav__link">
         
   
   
@@ -1087,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session2/addressing/" class="md-nav__link">
+      <a href="../../../session2/addressing/" class="md-nav__link">
         
   
   
@@ -1179,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session2/tasks/task1/" class="md-nav__link">
+      <a href="../../../session2/tasks/task1/" class="md-nav__link">
         
   
   
@@ -1207,7 +1129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session2/tasks/task2/" class="md-nav__link">
+      <a href="../../../session2/tasks/task2/" class="md-nav__link">
         
   
   
@@ -1235,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session2/tasks/task3/" class="md-nav__link">
+      <a href="../../../session2/tasks/task3/" class="md-nav__link">
         
   
   
@@ -1263,7 +1185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session2/tasks/task4/" class="md-nav__link">
+      <a href="../../../session2/tasks/task4/" class="md-nav__link">
         
   
   
@@ -1291,7 +1213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session2/tasks/verify/" class="md-nav__link">
+      <a href="../../../session2/tasks/verify/" class="md-nav__link">
         
   
   
@@ -1385,7 +1307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session2/reference/commands/" class="md-nav__link">
+      <a href="../../../session2/reference/commands/" class="md-nav__link">
         
   
   
@@ -1413,7 +1335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session2/reference/troubleshooting/" class="md-nav__link">
+      <a href="../../../session2/reference/troubleshooting/" class="md-nav__link">
         
   
   
@@ -1453,6 +1375,8 @@
       
   
   
+    
+  
   
   
     
@@ -1474,20 +1398,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="session3/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -1505,13 +1432,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1531,7 +1458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session3/topology/" class="md-nav__link">
+      <a href="../../topology/" class="md-nav__link">
         
   
   
@@ -1559,7 +1486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session3/addressing/" class="md-nav__link">
+      <a href="../../addressing/" class="md-nav__link">
         
   
   
@@ -1607,17 +1534,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
         
           
-          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
             
   
   
@@ -1653,7 +1583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session3/tasks/part0/" class="md-nav__link">
+      <a href="../../tasks/part0/" class="md-nav__link">
         
   
   
@@ -1681,7 +1611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session3/tasks/part1/" class="md-nav__link">
+      <a href="../../tasks/part1/" class="md-nav__link">
         
   
   
@@ -1709,7 +1639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session3/tasks/part2/" class="md-nav__link">
+      <a href="../../tasks/part2/" class="md-nav__link">
         
   
   
@@ -1737,7 +1667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session3/tasks/part3/" class="md-nav__link">
+      <a href="../../tasks/part3/" class="md-nav__link">
         
   
   
@@ -1765,7 +1695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session3/tasks/part4/" class="md-nav__link">
+      <a href="../../tasks/part4/" class="md-nav__link">
         
   
   
@@ -1793,7 +1723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session3/tasks/verify/" class="md-nav__link">
+      <a href="../../tasks/verify/" class="md-nav__link">
         
   
   
@@ -1826,8 +1756,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1840,18 +1772,21 @@
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
         
           
-          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
             
   
   
@@ -1869,7 +1804,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1884,10 +1819,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="session3/reference/commands/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1903,6 +1847,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1915,7 +1860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="session3/reference/troubleshooting/" class="md-nav__link">
+      <a href="../troubleshooting/" class="md-nav__link">
         
   
   
@@ -1971,82 +1916,8 @@
   
 
 
-<h1 id="network-training-labs">Network Training Labs</h1>
-<p>Welcome to the CCNA lab series. These labs are designed for adult professionals learning
-enterprise networking concepts using Cisco 3725 routers with NM-16ESW modules in GNS3.</p>
-<p>Each session builds on the previous one. Labs include full topology diagrams, addressing
-tables, step-by-step tasks, verification commands, and troubleshooting guides.</p>
-<hr />
-<h2 id="lab-series-overview">Lab Series Overview</h2>
-<table>
-<thead>
-<tr>
-<th>Session</th>
-<th>Topic</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="session1/index.md">Session 1</a></td>
-<td>Switching Fundamentals — VLANs &amp; Trunking</td>
-<td>✅ Available</td>
-</tr>
-<tr>
-<td><a href="session2/">Session 2</a></td>
-<td>Switching Fundamentals II — Inter-VLAN Routing</td>
-<td>✅ Available</td>
-</tr>
-<tr>
-<td><a href="session3/">Session 3</a></td>
-<td>Spanning Tree Protocol — Root Election &amp; PVST+</td>
-<td>✅ Available</td>
-</tr>
-<tr>
-<td>Session 4</td>
-<td>Static Routing &amp; Route Summarization</td>
-<td>🔜 Coming Soon</td>
-</tr>
-<tr>
-<td>Session 5</td>
-<td>OSPF Single-Area</td>
-<td>🔜 Coming Soon</td>
-</tr>
-<tr>
-<td>Session 6</td>
-<td>EIGRP</td>
-<td>🔜 Coming Soon</td>
-</tr>
-<tr>
-<td>Session 7</td>
-<td>ACLs and NAT</td>
-<td>🔜 Coming Soon</td>
-</tr>
-<tr>
-<td>Session 8</td>
-<td>Capstone Troubleshooting Lab</td>
-<td>🔜 Coming Soon</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="platform-requirements">Platform Requirements</h2>
-<ul>
-<li><strong>GNS3</strong> 2.2 or later</li>
-<li><strong>Cisco 3725</strong> IOS image with <strong>NM-16ESW</strong> module</li>
-<li>Recommended RAM per router: 256 MB</li>
-<li>All labs tested on GNS3 running locally on Windows or Linux</li>
-</ul>
-<hr />
-<h2 id="how-to-use-these-labs">How to Use These Labs</h2>
-<p>Each session is organized into the following sections:</p>
-<ul>
-<li><strong>Overview</strong> — objectives and session summary</li>
-<li><strong>Topology</strong> — GNS3 topology diagram and link table</li>
-<li><strong>Addressing</strong> — IP addressing and VLAN assignments</li>
-<li><strong>Tasks</strong> — step-by-step lab tasks with CLI snippets</li>
-<li><strong>Reference</strong> — command reference and troubleshooting guide</li>
-</ul>
+<h1 id="command-reference">Command Reference</h1>
+<!-- Add command reference table here -->
 
 
 
@@ -2102,10 +1973,10 @@ tables, step-by-step tasks, verification commands, and troubleshooting guides.</
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "content.code.copy", "content.code.annotate", "toc.integrate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "content.code.copy", "content.code.annotate", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
