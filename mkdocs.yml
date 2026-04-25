@@ -1,0 +1,104 @@
+site_name: Network Training Labs
+site_description: CCNA Type Lab Series in GNS3
+site_author: Network Training Lab
+site_url: https://DaveGirgis.github.io/NetworkSwitchLab/
+
+repo_name: DaveGirgis/NetworkSwitchLab
+repo_url: https://github.com/DaveGirgis/NetworkSwitchLab
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - content.code.copy
+    - content.code.annotate
+    - toc.integrate
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - tables
+  - attr_list
+
+nav:
+  - Home: index.md
+
+  - Session 1 — Switching Fundamentals:
+    - Overview: session1/index.md
+    - Topology: session1/topology.md
+    - Addressing: session1/addressing.md
+    - Tasks:
+      - Task 1 — Base Config: session1/tasks/task1.md
+      - Task 2 — VLANs: session1/tasks/task2.md
+      - Task 3 — Trunk Port: session1/tasks/task3.md
+      - Task 4 — Inter-VLAN Routing: session1/tasks/task4.md
+      - Verification: session1/tasks/verify.md
+    - Reference:
+      - Command Reference: session1/reference/commands.md
+      - Troubleshooting: session1/reference/troubleshooting.md
+
+  - Session 2 — Switching Fundamentals II:
+    - Overview: session2/index.md
+    - Topology: session2/topology.md
+    - Addressing: session2/addressing.md
+    - Tasks:
+      - Task 1 — Base Config: session2/tasks/task1.md
+      - Task 2 — VLANs: session2/tasks/task2.md
+      - Task 3 — Trunk Port: session2/tasks/task3.md
+      - Task 4 — Inter-VLAN Routing: session2/tasks/task4.md
+      - Verification: session2/tasks/verify.md
+    - Reference:
+      - Command Reference: session2/reference/commands.md
+      - Troubleshooting: session2/reference/troubleshooting.md
+
+  - Session 3 — Spanning Tree Protocol:
+    - Overview: session3/index.md
+    - Topology: session3/topology.md
+    - Addressing: session3/addressing.md
+    - Tasks:
+      - Part 0 — Base Config: session3/tasks/part0.md
+      - Part 1 — Root Election: session3/tasks/part1.md
+      - Part 2 — Root Control: session3/tasks/part2.md
+      - Part 3 — PVST+: session3/tasks/part3.md
+      - Part 4 — PortFast & BPDU Guard: session3/tasks/part4.md
+      - Verification: session3/tasks/verify.md
+    - Reference:
+      - Command Reference: session3/reference/commands.md
+      - Troubleshooting: session3/reference/troubleshooting.md
+
+  # Future sessions — uncomment and populate as labs are added
+  # - Session 4 — Static Routing:
+  #   - Overview: session4/index.md
+  #   - Tasks:
+  #     - Part 1: session4/tasks/part1.md
+  # - Session 5 — OSPF Single-Area:
+  #   - Overview: session5/index.md
+  # - Session 6 — EIGRP:
+  #   - Overview: session6/index.md
+  # - Session 7 — ACLs and NAT:
+  #   - Overview: session7/index.md
+  # - Session 8 — Capstone:
+  #   - Overview: session8/index.md
