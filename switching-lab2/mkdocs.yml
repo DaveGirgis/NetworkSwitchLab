@@ -1,0 +1,54 @@
+site_name: GNS3 Switching Lab
+site_description: VLAN Trunking and Inter-VLAN Routing — Cisco 3725 + NM-16ESW
+site_author: Network Training Lab
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - content.code.annotate
+    - toc.integrate
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - tables
+  - attr_list
+
+nav:
+  - Home: index.md
+  - Lab Overview:
+    - Introduction: overview/introduction.md
+    - Topology: overview/topology.md
+    - Address Table: overview/addressing.md
+  - Lab Tasks:
+    - Task 1 — Base Config: tasks/task1.md
+    - Task 2 — VLANs: tasks/task2.md
+    - Task 3 — Trunk Port: tasks/task3.md
+    - Task 4 — Inter-VLAN Routing: tasks/task4.md
+    - Verification: tasks/verify.md
+  - Reference:
+    - Command Reference: reference/commands.md
+    - Troubleshooting: reference/troubleshooting.md
