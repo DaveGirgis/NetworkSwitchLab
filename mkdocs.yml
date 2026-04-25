@@ -1,5 +1,5 @@
 site_name: Network Training Labs
-site_description: CCNA Type Lab Series in GNS3
+site_description: CCNA Lab Series — Cisco 3725 in GNS3
 site_author: Network Training Lab
 site_url: https://DaveGirgis.github.io/NetworkSwitchLab/
 
@@ -62,6 +62,7 @@ nav:
 
   - Session 2 — Switching Fundamentals II:
     - Overview: session2/index.md
+    - Introduction: session2/introduction.md
     - Topology: session2/topology.md
     - Addressing: session2/addressing.md
     - Tasks:
@@ -89,16 +90,28 @@ nav:
       - Command Reference: session3/reference/commands.md
       - Troubleshooting: session3/reference/troubleshooting.md
 
-  # Future sessions — uncomment and populate as labs are added
+  # Uncomment each block as new sessions are added to the repo
   # - Session 4 — Static Routing:
   #   - Overview: session4/index.md
+  #   - Topology: session4/topology.md
+  #   - Addressing: session4/addressing.md
   #   - Tasks:
-  #     - Part 1: session4/tasks/part1.md
+  #     - Part 1 — Static Routes: session4/tasks/part1.md
+  #     - Part 2 — Default Route: session4/tasks/part2.md
+  #     - Part 3 — Summarization: session4/tasks/part3.md
+  #     - Verification: session4/tasks/verify.md
+  #   - Reference:
+  #     - Command Reference: session4/reference/commands.md
+  #     - Troubleshooting: session4/reference/troubleshooting.md
+
   # - Session 5 — OSPF Single-Area:
   #   - Overview: session5/index.md
+
   # - Session 6 — EIGRP:
   #   - Overview: session6/index.md
+
   # - Session 7 — ACLs and NAT:
   #   - Overview: session7/index.md
+
   # - Session 8 — Capstone:
   #   - Overview: session8/index.md

@@ -3,11 +3,11 @@ name: Deploy MkDocs to GitHub Pages
 on:
   push:
     branches:
-      - main        # Rebuild and deploy on every push to main
-  workflow_dispatch:  # Allow manual trigger from the Actions tab
+      - main
+  workflow_dispatch:
 
 permissions:
-  contents: write   # Required to push to gh-pages branch
+  contents: write
 
 jobs:
   deploy:
@@ -17,17 +17,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Full history needed for git-revision-date plugin if added later
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Install MkDocs and Material theme
-        run: |
-          pip install mkdocs-material
+      - name: Install MkDocs Material
+        run: pip install mkdocs-material
 
       - name: Deploy to GitHub Pages
-        run: |
-          mkdocs gh-deploy --force
+        run: mkdocs gh-deploy --force
