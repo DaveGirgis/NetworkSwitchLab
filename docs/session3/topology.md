@@ -4,18 +4,24 @@
 
 ``` mermaid
 graph TD
-    SW1["🔀 SW1\n(Root Bridge)"]
-    SW2["🔀 SW2\n(Secondary Root)"]
-    SW3["🔀 SW3"]
-    SW4["🔀 SW4"]
+    %% Define Nodes
+    SW1["🔀 SW1<br/>(Root Bridge)"]
+    SW2["🔀 SW2<br/>(Secondary Root)"]
 
-    PC_A2["💻 SW2-PC-A\nVLAN 10 — .20"]
-    PC_B2["💻 SW2-PC-B\nVLAN 11 — .20"]
-    PC_A3["💻 SW3-PC-A\nVLAN 10 — .30"]
-    PC_B3["💻 SW3-PC-B\nVLAN 11 — .30"]
-    PC_A4["💻 SW4-PC-A\nVLAN 10 — .40"]
-    PC_B4["💻 SW4-PC-B\nVLAN 11 — .40"]
+    subgraph Access_Layer [" "]
+    direction LR
+        SW3["🔀 SW3"]
+        SW4["🔀 SW4"]
+    end
 
+    PC_A2["💻 SW2-PC-A<br/>VLAN 10 — .20"]
+    PC_B2["💻 SW2-PC-B<br/>VLAN 11 — .20"]
+    PC_A3["💻 SW3-PC-A<br/>VLAN 10 — .30"]
+    PC_B3["💻 SW3-PC-B<br/>VLAN 11 — .30"]
+    PC_A4["💻 SW4-PC-A<br/>VLAN 10 — .40"]
+    PC_B4["💻 SW4-PC-B<br/>VLAN 11 — .40"]
+
+    %% Switch to Switch Connections
     SW1 -- "Fa1/0 — Fa1/0" --- SW2
     SW1 -- "Fa1/1 — Fa1/0" --- SW3
     SW1 -- "Fa1/2 — Fa1/0" --- SW4
@@ -23,12 +29,17 @@ graph TD
     SW2 -- "Fa1/2 — Fa1/1" --- SW4
     SW3 -- "Fa1/1 — Fa1/2" --- SW4
 
+    %% PC Connections
     SW2 -- "Fa1/10" --- PC_A2
     SW2 -- "Fa1/11" --- PC_B2
     SW3 -- "Fa1/10" --- PC_A3
     SW3 -- "Fa1/11" --- PC_B3
     SW4 -- "Fa1/10" --- PC_A4
     SW4 -- "Fa1/11" --- PC_B4
+
+    %% Ranking logic
+    SW1 ~~~ SW2
+    SW3 ~~~ SW4
 ```
 
 !!! note "GNS3 Setup"
