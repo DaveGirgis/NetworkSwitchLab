@@ -1987,18 +1987,24 @@
 <h1 id="topology">Topology</h1>
 <h2 id="diagram">Diagram</h2>
 <pre class="mermaid"><code>graph TD
-    SW1["🔀 SW1\n(Root Bridge)"]
-    SW2["🔀 SW2\n(Secondary Root)"]
-    SW3["🔀 SW3"]
-    SW4["🔀 SW4"]
+    %% Define Nodes
+    SW1["🔀 SW1&lt;br/&gt;(Root Bridge)"]
+    SW2["🔀 SW2&lt;br/&gt;(Secondary Root)"]
 
-    PC_A2["💻 SW2-PC-A\nVLAN 10 — .20"]
-    PC_B2["💻 SW2-PC-B\nVLAN 11 — .20"]
-    PC_A3["💻 SW3-PC-A\nVLAN 10 — .30"]
-    PC_B3["💻 SW3-PC-B\nVLAN 11 — .30"]
-    PC_A4["💻 SW4-PC-A\nVLAN 10 — .40"]
-    PC_B4["💻 SW4-PC-B\nVLAN 11 — .40"]
+    subgraph Access_Layer [" "]
+    direction LR
+        SW3["🔀 SW3"]
+        SW4["🔀 SW4"]
+    end
 
+    PC_A2["💻 SW2-PC-A&lt;br/&gt;VLAN 10 — .20"]
+    PC_B2["💻 SW2-PC-B&lt;br/&gt;VLAN 11 — .20"]
+    PC_A3["💻 SW3-PC-A&lt;br/&gt;VLAN 10 — .30"]
+    PC_B3["💻 SW3-PC-B&lt;br/&gt;VLAN 11 — .30"]
+    PC_A4["💻 SW4-PC-A&lt;br/&gt;VLAN 10 — .40"]
+    PC_B4["💻 SW4-PC-B&lt;br/&gt;VLAN 11 — .40"]
+
+    %% Switch to Switch Connections
     SW1 -- "Fa1/0 — Fa1/0" --- SW2
     SW1 -- "Fa1/1 — Fa1/0" --- SW3
     SW1 -- "Fa1/2 — Fa1/0" --- SW4
@@ -2006,12 +2012,17 @@
     SW2 -- "Fa1/2 — Fa1/1" --- SW4
     SW3 -- "Fa1/1 — Fa1/2" --- SW4
 
+    %% PC Connections
     SW2 -- "Fa1/10" --- PC_A2
     SW2 -- "Fa1/11" --- PC_B2
     SW3 -- "Fa1/10" --- PC_A3
     SW3 -- "Fa1/11" --- PC_B3
     SW4 -- "Fa1/10" --- PC_A4
-    SW4 -- "Fa1/11" --- PC_B4</code></pre>
+    SW4 -- "Fa1/11" --- PC_B4
+
+    %% Ranking logic
+    SW1 ~~~ SW2
+    SW3 ~~~ SW4</code></pre>
 <div class="admonition note">
 <p class="admonition-title">GNS3 Setup</p>
 <p>Each 3725 requires an <strong>NM-16ESW</strong> module in slot 1. Interfaces appear as <code>FastEthernet1/0</code> through <code>FastEthernet1/15</code>. Connect all six inter-switch links <strong>before</strong> powering on devices so STP observes the full topology during initial convergence.</p>
