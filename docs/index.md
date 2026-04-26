@@ -1,6 +1,6 @@
 # Network Training Labs
 
-Welcome to the CCNA lab series. These labs are designed for adult professionals learning
+Welcome to the CCNA style lab series. These labs are designed for adult professionals learning
 enterprise networking concepts using Cisco 3725 routers with NM-16ESW modules in GNS3.
 
 Each session builds on the previous one. Labs include full topology diagrams, addressing
