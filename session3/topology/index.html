@@ -1467,6 +1467,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topology
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1483,6 +1501,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inter-switch-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inter-Switch Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-port-assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Port Assignments
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1915,7 +1985,130 @@
 
 
 <h1 id="topology">Topology</h1>
-<!-- Add topology diagram and link table here -->
+<h2 id="diagram">Diagram</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>        SW1 (Fa1/0)----------(Fa1/0) SW2
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>         |    \                /    |
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>      Fa1/1   Fa1/2        Fa1/1   Fa1/2
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>         |       \          /       |
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        SW3    (Fa1/2)  (Fa1/2)   SW4
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>      (Fa1/0)                   (Fa1/0)
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>         |    SW3(Fa1/1)--SW4(Fa1/1)   |
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>      Fa1/10                        Fa1/10
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>      Fa1/11                        Fa1/11
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>     [PC-A]                        [PC-A]
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>     [PC-B]                        [PC-B]
+</code></pre></div>
+<hr />
+<h2 id="inter-switch-links">Inter-Switch Links</h2>
+<table>
+<thead>
+<tr>
+<th>Link</th>
+<th>Switch A</th>
+<th>Port</th>
+<th>Switch B</th>
+<th>Port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SW1 — SW2</td>
+<td>SW1</td>
+<td>Fa1/0</td>
+<td>SW2</td>
+<td>Fa1/0</td>
+</tr>
+<tr>
+<td>SW1 — SW3</td>
+<td>SW1</td>
+<td>Fa1/1</td>
+<td>SW3</td>
+<td>Fa1/0</td>
+</tr>
+<tr>
+<td>SW1 — SW4</td>
+<td>SW1</td>
+<td>Fa1/2</td>
+<td>SW4</td>
+<td>Fa1/0</td>
+</tr>
+<tr>
+<td>SW2 — SW3</td>
+<td>SW2</td>
+<td>Fa1/1</td>
+<td>SW3</td>
+<td>Fa1/2</td>
+</tr>
+<tr>
+<td>SW2 — SW4</td>
+<td>SW2</td>
+<td>Fa1/2</td>
+<td>SW4</td>
+<td>Fa1/1</td>
+</tr>
+<tr>
+<td>SW3 — SW4</td>
+<td>SW3</td>
+<td>Fa1/1</td>
+<td>SW4</td>
+<td>Fa1/2</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="access-port-assignments">Access Port Assignments</h2>
+<table>
+<thead>
+<tr>
+<th>Switch</th>
+<th>Port</th>
+<th>VLAN</th>
+<th>Device</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SW2</td>
+<td>Fa1/10</td>
+<td>10</td>
+<td>SW2-PC-A</td>
+</tr>
+<tr>
+<td>SW2</td>
+<td>Fa1/11</td>
+<td>11</td>
+<td>SW2-PC-B</td>
+</tr>
+<tr>
+<td>SW3</td>
+<td>Fa1/10</td>
+<td>10</td>
+<td>SW3-PC-A</td>
+</tr>
+<tr>
+<td>SW3</td>
+<td>Fa1/11</td>
+<td>11</td>
+<td>SW3-PC-B</td>
+</tr>
+<tr>
+<td>SW4</td>
+<td>Fa1/10</td>
+<td>10</td>
+<td>SW4-PC-A</td>
+</tr>
+<tr>
+<td>SW4</td>
+<td>Fa1/11</td>
+<td>11</td>
+<td>SW4-PC-B</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">GNS3 Setup</p>
+<p>Each 3725 requires an <strong>NM-16ESW</strong> module in slot 1. Interfaces appear as <code>FastEthernet1/0</code> through <code>FastEthernet1/15</code>. Connect all six inter-switch links <strong>before</strong> powering on devices so STP observes the full topology during initial convergence.</p>
+</div>
 
 
 

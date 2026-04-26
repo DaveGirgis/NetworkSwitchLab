@@ -1706,6 +1706,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 4 — PortFast & BPDU Guard
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1722,6 +1740,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#task-41-enable-portfast-on-access-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 4.1 — Enable PortFast on Access Ports
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-42-enable-bpdu-guard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 4.2 — Enable BPDU Guard
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-43-test-bpdu-guard-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 4.3 — Test BPDU Guard Behavior
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-44-recover-an-err-disabled-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 4.4 — Recover an err-disabled Port
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1916,8 +1997,114 @@
   
 
 
-<h1 id="part-4-portfast-and-bpdu-guard">Part 4 - PortFast and BPDU Guard</h1>
-<!-- Add Part 4 tasks here -->
+<h1 id="part-4-portfast-and-bpdu-guard">Part 4 — PortFast and BPDU Guard</h1>
+<p><strong>Objective:</strong> Configure safe STP behavior on access ports connected to end devices and verify protection against rogue switches.</p>
+<hr />
+<h2 id="task-41-enable-portfast-on-access-ports">Task 4.1 — Enable PortFast on Access Ports</h2>
+<p>Apply to the PC-facing ports on SW2, SW3, and SW4:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>! On SW2
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>configure terminal
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>interface FastEthernet1/10
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a> spanning-tree portfast
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>interface FastEthernet1/11
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a> spanning-tree portfast
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>end
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>write memory
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>! On SW3
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>configure terminal
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>interface FastEthernet1/10
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a> spanning-tree portfast
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>interface FastEthernet1/11
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a> spanning-tree portfast
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>end
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>write memory
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>! On SW4
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>configure terminal
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>interface FastEthernet1/10
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a> spanning-tree portfast
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>interface FastEthernet1/11
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a> spanning-tree portfast
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>end
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>write memory
+</code></pre></div>
+<p>Observe the difference by bouncing an access port and watching the state transition:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>! On SW2
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>configure terminal
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>interface FastEthernet1/10
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a> shutdown
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a> no shutdown
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>end
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>show spanning-tree vlan 10 interface FastEthernet1/10
+</code></pre></div>
+<p>The port transitions directly to <code>FWD</code> without passing through <code>LIS</code> or <code>LRN</code> states.</p>
+<div class="admonition danger">
+<p class="admonition-title">PortFast Warning</p>
+<p><strong>Never</strong> enable PortFast on a port connected to another switch. PortFast skips STP's loop-detection delay entirely. A switch connected to a PortFast port can form a bridging loop before STP has a chance to detect and block it.</p>
+</div>
+<hr />
+<h2 id="task-42-enable-bpdu-guard">Task 4.2 — Enable BPDU Guard</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>! On SW2
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>configure terminal
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>interface FastEthernet1/10
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a> spanning-tree bpduguard enable
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>interface FastEthernet1/11
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a> spanning-tree bpduguard enable
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>end
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>write memory
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>! On SW3
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>configure terminal
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>interface FastEthernet1/10
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a> spanning-tree bpduguard enable
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>interface FastEthernet1/11
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a> spanning-tree bpduguard enable
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>end
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>write memory
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>! On SW4
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>configure terminal
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>interface FastEthernet1/10
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a> spanning-tree bpduguard enable
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>interface FastEthernet1/11
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a> spanning-tree bpduguard enable
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>end
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>write memory
+</code></pre></div>
+<hr />
+<h2 id="task-43-test-bpdu-guard-behavior">Task 4.3 — Test BPDU Guard Behavior</h2>
+<p>In GNS3, connect a fifth switch to SW2 Fa1/10. When the rogue device sends a BPDU the port immediately enters <code>err-disabled</code> state.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>! On SW2
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>show interfaces FastEthernet1/10 status
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>show spanning-tree inconsistentports
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>show log
+</code></pre></div>
+<p>Expected syslog output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>%SPANTREE-2-BLOCK_BPDUGUARD: Received BPDU on port FastEthernet1/10
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a> with BPDU Guard enabled. Disabling port.
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>%PM-4-ERR_DISABLE: bpduguard error detected on Fa1/10,
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a> putting Fa1/10 in err-disable state
+</code></pre></div>
+<hr />
+<h2 id="task-44-recover-an-err-disabled-port">Task 4.4 — Recover an err-disabled Port</h2>
+<p>Remove the rogue device from GNS3, then manually re-enable the port:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>! On SW2
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>configure terminal
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>interface FastEthernet1/10
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a> shutdown
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a> no shutdown
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>end
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>write memory
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>show interfaces FastEthernet1/10 status
+</code></pre></div>
+<p>The port returns to <code>connected</code> status.</p>
+<div class="admonition tip">
+<p class="admonition-title">Automatic Recovery (Production Note)</p>
+<p>In production, <code>errdisable recovery cause bpduguard</code> combined with <code>errdisable recovery interval 300</code> can automatically re-enable err-disabled ports after a timer. This is not recommended during initial troubleshooting — always investigate the root cause before re-enabling automatically.</p>
+</div>
 
 
 

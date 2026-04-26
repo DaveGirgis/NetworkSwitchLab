@@ -1650,6 +1650,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 2 — Root Control
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1666,6 +1684,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#task-21-set-sw1-as-primary-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 2.1 — Set SW1 as Primary Root
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-22-set-sw2-as-secondary-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 2.2 — Set SW2 as Secondary Root
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-23-re-map-the-active-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 2.3 — Re-map the Active Topology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-24-simulate-root-bridge-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 2.4 — Simulate Root Bridge Failure
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1916,8 +1997,82 @@
   
 
 
-<h1 id="part-2-control-root-bridge-placement">Part 2 - Control Root Bridge Placement</h1>
-<!-- Add Part 2 tasks here -->
+<h1 id="part-2-control-root-bridge-placement">Part 2 — Control Root Bridge Placement</h1>
+<p><strong>Objective:</strong> Override the natural election and force SW1 to become the primary root for both VLANs, with SW2 as the designated secondary.</p>
+<hr />
+<h2 id="task-21-set-sw1-as-primary-root">Task 2.1 — Set SW1 as Primary Root</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>! On SW1
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>configure terminal
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>spanning-tree vlan 10 priority 0
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>spanning-tree vlan 11 priority 0
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>end
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>write memory
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Priority Values</p>
+<p>STP bridge priority must be a multiple of 4096. Valid values range from <code>0</code> to <code>61440</code>. The default is <code>32768</code>. Setting <code>0</code> guarantees SW1 wins the election for a given VLAN regardless of MAC address.</p>
+</div>
+<p>Wait 30–50 seconds for STP to reconverge, then verify on SW1:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>show spanning-tree vlan 10
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>show spanning-tree vlan 11
+</code></pre></div>
+<p>Both should show:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>This bridge is the root
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Bridge ID  Priority    10  (priority 0 sys-id-ext 10)
+</code></pre></div>
+<hr />
+<h2 id="task-22-set-sw2-as-secondary-root">Task 2.2 — Set SW2 as Secondary Root</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>! On SW2
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>configure terminal
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>spanning-tree vlan 10 priority 4096
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>spanning-tree vlan 11 priority 4096
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>end
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>write memory
+</code></pre></div>
+<p>Verify:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>! On SW2
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>show spanning-tree vlan 10
+</code></pre></div>
+<p>Bridge ID Priority should show <code>4106  (priority 4096 sys-id-ext 10)</code>.</p>
+<hr />
+<h2 id="task-23-re-map-the-active-topology">Task 2.3 — Re-map the Active Topology</h2>
+<p>Repeat Task 1.4 with the new root placement and update your whiteboard diagram.</p>
+<p><strong>Discussion questions:</strong></p>
+<ul>
+<li>Which ports changed state after forcing SW1 to root?</li>
+<li>How does placing the root bridge at a central uplink switch affect path efficiency for downstream switches?</li>
+<li>What would happen in a real network if the root bridge were placed on an access layer switch by accident?</li>
+</ul>
+<hr />
+<h2 id="task-24-simulate-root-bridge-failure">Task 2.4 — Simulate Root Bridge Failure</h2>
+<p>With the continuous ping still running, shut all trunk ports on SW1:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>! On SW1
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>configure terminal
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>interface range FastEthernet1/0 - 2
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a> shutdown
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>end
+</code></pre></div>
+<p>Observe the ping output and record:</p>
+<ul>
+<li>How many replies were lost?</li>
+<li>How many seconds until recovery?</li>
+<li>Which switch became the new root?</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>! On SW2 — confirm it is now root
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>show spanning-tree vlan 10
+</code></pre></div>
+<p>Restore SW1 and observe the second reconvergence:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>! On SW1
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>configure terminal
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>interface range FastEthernet1/0 - 2
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a> no shutdown
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>end
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>write memory
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Classic STP Convergence Time</p>
+<p>Classic 802.1D STP takes 30–50 seconds to converge: 15 seconds Listening + 15 seconds Learning before a port transitions to Forwarding. This is a primary motivation for Rapid STP (802.1w), which converges in 1–2 seconds using a proposal/agreement mechanism between neighbors rather than fixed timers.</p>
+</div>
 
 
 

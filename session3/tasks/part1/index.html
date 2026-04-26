@@ -1622,6 +1622,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 1 — Root Election
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1638,6 +1656,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#task-11-verify-trunk-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 1.1 — Verify Trunk Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-12-verify-vlan-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 1.2 — Verify VLAN Database
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-13-identify-the-root-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 1.3 — Identify the Root Bridge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-14-map-port-roles-across-all-switches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 1.4 — Map Port Roles Across All Switches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-15-establish-a-live-ping-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task 1.5 — Establish a Live Ping Baseline
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1916,8 +2008,109 @@
   
 
 
-<h1 id="part-1-observe-natural-root-bridge-election">Part 1 - Observe Natural Root Bridge Election</h1>
-<!-- Add Part 1 tasks here -->
+<h1 id="part-1-observe-natural-root-bridge-election">Part 1 — Observe Natural Root Bridge Election</h1>
+<p><strong>Objective:</strong> Allow STP to elect a root bridge without any manual configuration. Identify and document the result before making any changes.</p>
+<hr />
+<h2 id="task-11-verify-trunk-links">Task 1.1 — Verify Trunk Links</h2>
+<p>Confirm all six inter-switch links are active on each switch:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>show interfaces trunk
+</code></pre></div>
+<p>All trunk ports should appear in the <code>trunking</code> state and show VLANs 10 and 11 in the allowed and active columns. If any port is missing, check cabling in GNS3 and verify <code>switchport mode trunk</code> is applied.</p>
+<hr />
+<h2 id="task-12-verify-vlan-database">Task 1.2 — Verify VLAN Database</h2>
+<p>Confirm VLANs 10 and 11 are present and active on all switches:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>show vlan brief
+</code></pre></div>
+<hr />
+<h2 id="task-13-identify-the-root-bridge">Task 1.3 — Identify the Root Bridge</h2>
+<p>Run the following on <strong>each switch</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>show spanning-tree vlan 10
+</code></pre></div>
+<p>The root bridge displays:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>This bridge is the root
+</code></pre></div>
+<p>On non-root switches, note these fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Root ID Priority</code></td>
+<td>Root bridge priority — default 32768 + VLAN ID = 32778 for VLAN 10</td>
+</tr>
+<tr>
+<td><code>Root ID Address</code></td>
+<td>Root bridge MAC — lowest MAC wins when priorities tie</td>
+</tr>
+<tr>
+<td><code>Root port</code></td>
+<td>Local port with the lowest cost path toward the root</td>
+</tr>
+<tr>
+<td><code>Cost</code></td>
+<td>Cumulative path cost to reach the root</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Why Did That Switch Win?</p>
+<p>With all switches at default priority, the switch with the <strong>lowest MAC address</strong> wins the election. In GNS3, MAC addresses are assigned at startup — often the first device initialized wins. This is exactly why manual priority configuration matters in production.</p>
+</div>
+<hr />
+<h2 id="task-14-map-port-roles-across-all-switches">Task 1.4 — Map Port Roles Across All Switches</h2>
+<p>Using <code>show spanning-tree vlan 10</code> on each switch, complete the following table:</p>
+<table>
+<thead>
+<tr>
+<th>Switch</th>
+<th>Bridge Role</th>
+<th>Root Port</th>
+<th>Designated Ports</th>
+<th>Blocked (Alternate) Ports</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SW1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SW2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SW3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SW4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Draw the active loop-free topology on the whiteboard. Mark blocked ports with an <strong>X</strong> and draw arrows on root ports pointing toward the root bridge.</p>
+<hr />
+<h2 id="task-15-establish-a-live-ping-baseline">Task 1.5 — Establish a Live Ping Baseline</h2>
+<p>Configure SW2-PC-A and SW3-PC-A with addresses from the VLAN 10 table. From SW2-PC-A, start a continuous ping to SW3-PC-A:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ping 192.168.10.30 repeat 10000 timeout 1
+</code></pre></div>
+<p>Leave this running throughout Parts 2 and 3 to observe reconvergence behavior during topology changes.</p>
 
 
 

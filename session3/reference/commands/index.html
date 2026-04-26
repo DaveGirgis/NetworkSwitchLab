@@ -1831,6 +1831,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1847,6 +1865,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#discussion-wrap-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discussion &amp; Wrap-Up
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1917,7 +1965,70 @@
 
 
 <h1 id="command-reference">Command Reference</h1>
-<!-- Add command reference table here -->
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>show spanning-tree vlan &lt;id&gt;</code></td>
+<td>STP topology for a specific VLAN</td>
+</tr>
+<tr>
+<td><code>show spanning-tree detail</code></td>
+<td>Full port roles, path costs, and timer detail</td>
+</tr>
+<tr>
+<td><code>show spanning-tree summary</code></td>
+<td>Feature status and per-VLAN instance overview</td>
+</tr>
+<tr>
+<td><code>show interfaces trunk</code></td>
+<td>Verify trunk links and allowed VLANs</td>
+</tr>
+<tr>
+<td><code>show vlan brief</code></td>
+<td>Confirm VLAN database on the switch</td>
+</tr>
+<tr>
+<td><code>show interfaces status err-disabled</code></td>
+<td>Find ports shut down by BPDU Guard</td>
+</tr>
+<tr>
+<td><code>show log</code></td>
+<td>View BPDU Guard and STP syslog events</td>
+</tr>
+<tr>
+<td><code>spanning-tree vlan &lt;id&gt; priority &lt;value&gt;</code></td>
+<td>Set bridge priority for a specific VLAN</td>
+</tr>
+<tr>
+<td><code>spanning-tree portfast</code></td>
+<td>Skip Listening/Learning on an access port</td>
+</tr>
+<tr>
+<td><code>spanning-tree bpduguard enable</code></td>
+<td>Err-disable port if a BPDU is received</td>
+</tr>
+<tr>
+<td><code>errdisable recovery cause bpduguard</code></td>
+<td>Enable automatic err-disable recovery (optional)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="discussion-wrap-up">Discussion &amp; Wrap-Up</h2>
+<p><strong>1. Why STP exists</strong>
+Ethernet frames have no TTL field. Without STP, a broadcast frame caught in a switching loop circulates at wire speed indefinitely, consuming all available bandwidth within seconds and crashing the network. STP solves this by computing a loop-free tree and blocking redundant paths.</p>
+<p><strong>2. The cost of blocked ports</strong>
+Every blocked port represents unused physical bandwidth. PVST+ partially recovers this by running independent spanning trees per VLAN, but each individual VLAN's topology still has blocked links. This tradeoff motivates technologies like EtherChannel and layer 3 routed access designs in modern networks.</p>
+<p><strong>3. Classic STP vs. Rapid STP</strong>
+802.1D classic STP takes 30–50 seconds to converge using fixed timers. 802.1w Rapid STP converges in 1–2 seconds using a proposal/agreement handshake between neighboring switches. Modern switches run RSTP or MSTP by default. Understanding classic STP first makes RSTP much easier to grasp — and both are CCNA exam objectives.</p>
+<p><strong>4. The accidental root bridge</strong>
+Any unmanaged switch plugged into a production network with default priority can win the root election if its MAC address is lower than the infrastructure switches. This silently reroutes traffic through an unintended device, causing asymmetric paths and performance degradation. BPDU Guard on all access ports is the mitigation.</p>
 
 
 

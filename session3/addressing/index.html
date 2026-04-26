@@ -1495,6 +1495,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Addressing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1511,6 +1529,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vlan-10-19216810024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VLAN 10 — 192.168.10.0/24
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vlan-11-19216811024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VLAN 11 — 192.168.11.0/24
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1915,7 +1974,74 @@
 
 
 <h1 id="addressing">Addressing</h1>
-<!-- Add VLAN 10 and VLAN 11 address tables here -->
+<h2 id="vlan-10-19216810024">VLAN 10 — 192.168.10.0/24</h2>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>IP Address</th>
+<th>Default Gateway</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SW1 SVI (VLAN 10)</td>
+<td>192.168.10.1</td>
+<td>—</td>
+</tr>
+<tr>
+<td>SW2-PC-A</td>
+<td>192.168.10.20</td>
+<td>192.168.10.1</td>
+</tr>
+<tr>
+<td>SW3-PC-A</td>
+<td>192.168.10.30</td>
+<td>192.168.10.1</td>
+</tr>
+<tr>
+<td>SW4-PC-A</td>
+<td>192.168.10.40</td>
+<td>192.168.10.1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vlan-11-19216811024">VLAN 11 — 192.168.11.0/24</h2>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>IP Address</th>
+<th>Default Gateway</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SW1 SVI (VLAN 11)</td>
+<td>192.168.11.1</td>
+<td>—</td>
+</tr>
+<tr>
+<td>SW2-PC-B</td>
+<td>192.168.11.20</td>
+<td>192.168.11.1</td>
+</tr>
+<tr>
+<td>SW3-PC-B</td>
+<td>192.168.11.30</td>
+<td>192.168.11.1</td>
+</tr>
+<tr>
+<td>SW4-PC-B</td>
+<td>192.168.11.40</td>
+<td>192.168.11.1</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Management Access</p>
+<p>Only SW1 has SVIs configured. SW2, SW3, and SW4 have no Layer 3 addressing — they are pure Layer 2 switches for this lab. All pings and reachability tests originate from the attached PCs or from SW1.</p>
+</div>
 
 
 

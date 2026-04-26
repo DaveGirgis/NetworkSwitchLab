@@ -1915,7 +1915,57 @@
 
 
 <h1 id="troubleshooting">Troubleshooting</h1>
-<!-- Add troubleshooting table here -->
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely Cause</th>
+<th>Resolution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Port stuck in BLK permanently</td>
+<td>Expected — non-designated alternate port</td>
+<td>Verify with <code>show spanning-tree</code> — this may be correct</td>
+</tr>
+<tr>
+<td>Unexpected root bridge after reboot</td>
+<td>Priority not saved to NVRAM</td>
+<td>Run <code>write memory</code> after every priority change</td>
+</tr>
+<tr>
+<td>Port in err-disabled state</td>
+<td>BPDU Guard triggered</td>
+<td>Remove rogue device, then <code>shutdown</code> / <code>no shutdown</code> the port</td>
+</tr>
+<tr>
+<td>Slow convergence after link failure</td>
+<td>Normal for classic 802.1D</td>
+<td>~30–50 sec expected; preview RSTP as the modern solution</td>
+</tr>
+<tr>
+<td>VLAN missing from spanning tree</td>
+<td>VLAN not in database</td>
+<td><code>show vlan brief</code> — create with <code>vlan &lt;id&gt;</code> in global config</td>
+</tr>
+<tr>
+<td>Trunk not passing VLAN 10 or 11</td>
+<td>VLAN pruned from trunk</td>
+<td><code>switchport trunk allowed vlan all</code> or add specific VLANs</td>
+</tr>
+<tr>
+<td>PC cannot ping across switches</td>
+<td>PC in wrong VLAN or wrong IP</td>
+<td>Verify access port VLAN assignment and PC address</td>
+</tr>
+<tr>
+<td>STP topology changing repeatedly</td>
+<td>Flapping link or rogue BPDU source</td>
+<td><code>show spanning-tree detail</code> — check topology change counters</td>
+</tr>
+</tbody>
+</table>
 
 
 

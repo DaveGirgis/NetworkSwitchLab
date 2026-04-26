@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#session-3-spanning-tree-protocol" class="md-skip">
+        <a href="#session-3-spanning-tree-protocol-root-election-pvst" class="md-skip">
           Skip to content
         </a>
       
@@ -1904,8 +1904,84 @@
   
 
 
-<h1 id="session-3-spanning-tree-protocol">Session 3: Spanning Tree Protocol</h1>
-<p>See tasks for lab content.</p>
+<h1 id="session-3-spanning-tree-protocol-root-election-pvst">Session 3: Spanning Tree Protocol — Root Election &amp; PVST+</h1>
+<h2 id="overview">Overview</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Session</strong></td>
+<td>3 of 8</td>
+</tr>
+<tr>
+<td><strong>Duration</strong></td>
+<td>~2.5 hours</td>
+</tr>
+<tr>
+<td><strong>Platform</strong></td>
+<td>GNS3 with Cisco 3725 + NM-16ESW</td>
+</tr>
+<tr>
+<td><strong>Difficulty</strong></td>
+<td>Intermediate</td>
+</tr>
+</tbody>
+</table>
+<p>This lab expands the two-switch topology from Session 1 into a four-switch partial mesh. Students will observe STP elect a root bridge naturally, then take control of root bridge placement using bridge priority manipulation. The session concludes with Per-VLAN Spanning Tree (PVST+) load balancing using the VLAN 10 and VLAN 11 networks established in the previous session.</p>
+<hr />
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this session, students will be able to:</p>
+<ul>
+<li>Explain the STP root bridge election process (bridge ID, priority, MAC address)</li>
+<li>Identify root ports, designated ports, and blocked ports on a live topology</li>
+<li>Manipulate root bridge placement using <code>spanning-tree priority</code></li>
+<li>Configure a secondary root bridge for redundancy</li>
+<li>Implement PVST+ to load-balance traffic across redundant links per VLAN</li>
+<li>Enable PortFast and BPDU Guard on access ports</li>
+</ul>
+<hr />
+<h2 id="session-structure">Session Structure</h2>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Topic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="tasks/part0/">Part 0</a></td>
+<td>Base Configuration</td>
+</tr>
+<tr>
+<td><a href="tasks/part1/">Part 1</a></td>
+<td>Observe Natural Root Bridge Election</td>
+</tr>
+<tr>
+<td><a href="tasks/part2/">Part 2</a></td>
+<td>Control Root Bridge Placement</td>
+</tr>
+<tr>
+<td><a href="tasks/part3/">Part 3</a></td>
+<td>PVST+ Load Balancing</td>
+</tr>
+<tr>
+<td><a href="tasks/part4/">Part 4</a></td>
+<td>PortFast and BPDU Guard</td>
+</tr>
+<tr>
+<td><a href="tasks/verify/">Verification</a></td>
+<td>Final Verification &amp; Checklist</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Session 3 of 8 — Next: Session 4: Static Routing &amp; Route Summarization</em></p>
 
 
 
