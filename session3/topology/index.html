@@ -1986,18 +1986,36 @@
 
 <h1 id="topology">Topology</h1>
 <h2 id="diagram">Diagram</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>        SW1 (Fa1/0)----------(Fa1/0) SW2
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>         |    \                /    |
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>      Fa1/1   Fa1/2        Fa1/1   Fa1/2
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>         |       \          /       |
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        SW3    (Fa1/2)  (Fa1/2)   SW4
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>      (Fa1/0)                   (Fa1/0)
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>         |    SW3(Fa1/1)--SW4(Fa1/1)   |
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>      Fa1/10                        Fa1/10
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>      Fa1/11                        Fa1/11
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>     [PC-A]                        [PC-A]
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>     [PC-B]                        [PC-B]
-</code></pre></div>
+<pre class="mermaid"><code>graph TD
+    SW1["🔀 SW1\n(Root Bridge)"]
+    SW2["🔀 SW2\n(Secondary Root)"]
+    SW3["🔀 SW3"]
+    SW4["🔀 SW4"]
+
+    PC_A2["💻 SW2-PC-A\nVLAN 10 — .20"]
+    PC_B2["💻 SW2-PC-B\nVLAN 11 — .20"]
+    PC_A3["💻 SW3-PC-A\nVLAN 10 — .30"]
+    PC_B3["💻 SW3-PC-B\nVLAN 11 — .30"]
+    PC_A4["💻 SW4-PC-A\nVLAN 10 — .40"]
+    PC_B4["💻 SW4-PC-B\nVLAN 11 — .40"]
+
+    SW1 -- "Fa1/0 — Fa1/0" --- SW2
+    SW1 -- "Fa1/1 — Fa1/0" --- SW3
+    SW1 -- "Fa1/2 — Fa1/0" --- SW4
+    SW2 -- "Fa1/1 — Fa1/2" --- SW3
+    SW2 -- "Fa1/2 — Fa1/1" --- SW4
+    SW3 -- "Fa1/1 — Fa1/2" --- SW4
+
+    SW2 -- "Fa1/10" --- PC_A2
+    SW2 -- "Fa1/11" --- PC_B2
+    SW3 -- "Fa1/10" --- PC_A3
+    SW3 -- "Fa1/11" --- PC_B3
+    SW4 -- "Fa1/10" --- PC_A4
+    SW4 -- "Fa1/11" --- PC_B4</code></pre>
+<div class="admonition note">
+<p class="admonition-title">GNS3 Setup</p>
+<p>Each 3725 requires an <strong>NM-16ESW</strong> module in slot 1. Interfaces appear as <code>FastEthernet1/0</code> through <code>FastEthernet1/15</code>. Connect all six inter-switch links <strong>before</strong> powering on devices so STP observes the full topology during initial convergence.</p>
+</div>
 <hr />
 <h2 id="inter-switch-links">Inter-Switch Links</h2>
 <table>
@@ -2064,6 +2082,7 @@
 <th>Port</th>
 <th>VLAN</th>
 <th>Device</th>
+<th>IP Address</th>
 </tr>
 </thead>
 <tbody>
@@ -2072,43 +2091,45 @@
 <td>Fa1/10</td>
 <td>10</td>
 <td>SW2-PC-A</td>
+<td>192.168.10.20</td>
 </tr>
 <tr>
 <td>SW2</td>
 <td>Fa1/11</td>
 <td>11</td>
 <td>SW2-PC-B</td>
+<td>192.168.11.20</td>
 </tr>
 <tr>
 <td>SW3</td>
 <td>Fa1/10</td>
 <td>10</td>
 <td>SW3-PC-A</td>
+<td>192.168.10.30</td>
 </tr>
 <tr>
 <td>SW3</td>
 <td>Fa1/11</td>
 <td>11</td>
 <td>SW3-PC-B</td>
+<td>192.168.11.30</td>
 </tr>
 <tr>
 <td>SW4</td>
 <td>Fa1/10</td>
 <td>10</td>
 <td>SW4-PC-A</td>
+<td>192.168.10.40</td>
 </tr>
 <tr>
 <td>SW4</td>
 <td>Fa1/11</td>
 <td>11</td>
 <td>SW4-PC-B</td>
+<td>192.168.11.40</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">GNS3 Setup</p>
-<p>Each 3725 requires an <strong>NM-16ESW</strong> module in slot 1. Interfaces appear as <code>FastEthernet1/0</code> through <code>FastEthernet1/15</code>. Connect all six inter-switch links <strong>before</strong> powering on devices so STP observes the full topology during initial convergence.</p>
-</div>
 
 
 
