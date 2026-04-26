@@ -24,6 +24,17 @@ Confirm VLANs 10 and 11 are present and active on all switches:
 show vlan brief
 ```
 
+!!! warning "VLANs Not Showing?"
+    On the 3725, VLANs created in `vlan database` mode are stored in `vlan.dat` — not in the running config. If VLANs are missing, return to VLAN database mode and re-enter them:
+
+    ```cisco
+    vlan database
+     vlan 10 name SALES
+     vlan 11 name ENGINEERING
+    apply
+    exit
+    ```
+
 ---
 
 ## Task 1.3 — Identify the Root Bridge

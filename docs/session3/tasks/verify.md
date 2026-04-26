@@ -1,4 +1,4 @@
-# Verification Summary
+# Verification
 
 Run these commands on each switch to confirm all objectives are complete before ending the session:
 
@@ -38,12 +38,6 @@ spanning-tree mode pvst
 spanning-tree vlan 10 priority 0
 spanning-tree vlan 11 priority 4096
 !
-vlan 10
- name SALES
-!
-vlan 11
- name ENGINEERING
-!
 interface FastEthernet1/0
  description TRUNK_TO_SW2
  switchport mode trunk
@@ -73,6 +67,9 @@ interface vlan 11
 end
 ```
 
+!!! note "VLANs in vlan.dat"
+    The `vlan database` entries for VLAN 10 (SALES) and VLAN 11 (ENGINEERING) are stored in `vlan.dat` and will not appear in `show running-config`. Verify with `show vlan brief`.
+
 ### SW2 — Final Config
 
 ```cisco
@@ -82,12 +79,6 @@ no ip domain-lookup
 spanning-tree mode pvst
 spanning-tree vlan 10 priority 4096
 spanning-tree vlan 11 priority 0
-!
-vlan 10
- name SALES
-!
-vlan 11
- name ENGINEERING
 !
 interface FastEthernet1/0
  description TRUNK_TO_SW1
@@ -137,12 +128,6 @@ no ip domain-lookup
 !
 spanning-tree mode pvst
 !
-vlan 10
- name SALES
-!
-vlan 11
- name ENGINEERING
-!
 interface FastEthernet1/0
  description TRUNK_TO_SW1
  switchport mode trunk
@@ -191,12 +176,6 @@ no ip domain-lookup
 !
 spanning-tree mode pvst
 !
-vlan 10
- name SALES
-!
-vlan 11
- name ENGINEERING
-!
 interface FastEthernet1/0
  description TRUNK_TO_SW1
  switchport mode trunk
@@ -241,8 +220,9 @@ end
 
 ## Lab Completion Checklist
 
+- [ ] VLANs 10 and 11 created via `vlan database` on all switches
 - [ ] All six inter-switch trunk links verified as active
-- [ ] VLANs 10 and 11 confirmed in database on all switches
+- [ ] VLANs 10 and 11 confirmed active with `show vlan brief` on all switches
 - [ ] Natural root bridge election winner identified and explained
 - [ ] Port roles (root, designated, alternate/blocked) mapped for all four switches
 - [ ] Active loop-free topology drawn on whiteboard with blocked ports marked
