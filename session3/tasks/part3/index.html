@@ -2001,14 +2001,14 @@
 <p><strong>Objective:</strong> Use Per-VLAN Spanning Tree to assign different root bridges to VLAN 10 and VLAN 11, activating links that would otherwise remain blocked under a single spanning tree instance.</p>
 <hr />
 <h2 id="task-31-configure-pvst-root-bridges">Task 3.1 — Configure PVST+ Root Bridges</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>! On SW1 — Primary root for VLAN 10, secondary for VLAN 11
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>! On SW1 - Primary root for VLAN 10, secondary for VLAN 11
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>configure terminal
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>spanning-tree vlan 10 priority 0
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>spanning-tree vlan 11 priority 4096
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>end
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>write memory
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>! On SW2 — Primary root for VLAN 11, secondary for VLAN 10
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>! On SW2 - Primary root for VLAN 11, secondary for VLAN 10
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>configure terminal
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>spanning-tree vlan 10 priority 4096
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>spanning-tree vlan 11 priority 0
@@ -2032,12 +2032,12 @@
 <hr />
 <h2 id="task-33-test-reachability-across-both-vlans">Task 3.3 — Test Reachability Across Both VLANs</h2>
 <p>Configure all PC-A devices with VLAN 10 addresses and all PC-B devices with VLAN 11 addresses per the addressing table.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>! From SW2-PC-A (192.168.10.20) — VLAN 10 path through SW1 as root
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>! From SW2-PC-A (192.168.10.20) - VLAN 10 path through SW1 as root
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ping 192.168.10.30   ! to SW3-PC-A
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>ping 192.168.10.40   ! to SW4-PC-A
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>ping 192.168.10.1    ! to SW1 SVI
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>! From SW2-PC-B (192.168.11.20) — VLAN 11 path through SW2 as root
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>! From SW2-PC-B (192.168.11.20) - VLAN 11 path through SW2 as root
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>ping 192.168.11.30   ! to SW3-PC-B
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>ping 192.168.11.40   ! to SW4-PC-B
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>ping 192.168.11.1    ! to SW1 SVI
