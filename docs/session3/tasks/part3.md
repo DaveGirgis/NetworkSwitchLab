@@ -7,7 +7,7 @@
 ## Task 3.1 — Configure PVST+ Root Bridges
 
 ```cisco
-! On SW1 — Primary root for VLAN 10, secondary for VLAN 11
+! On SW1 - Primary root for VLAN 10, secondary for VLAN 11
 configure terminal
 spanning-tree vlan 10 priority 0
 spanning-tree vlan 11 priority 4096
@@ -16,7 +16,7 @@ write memory
 ```
 
 ```cisco
-! On SW2 — Primary root for VLAN 11, secondary for VLAN 10
+! On SW2 - Primary root for VLAN 11, secondary for VLAN 10
 configure terminal
 spanning-tree vlan 10 priority 4096
 spanning-tree vlan 11 priority 0
@@ -52,12 +52,12 @@ Draw two topology diagrams side by side — one per VLAN — and compare which l
 Configure all PC-A devices with VLAN 10 addresses and all PC-B devices with VLAN 11 addresses per the addressing table.
 
 ```cisco
-! From SW2-PC-A (192.168.10.20) — VLAN 10 path through SW1 as root
+! From SW2-PC-A (192.168.10.20) - VLAN 10 path through SW1 as root
 ping 192.168.10.30   ! to SW3-PC-A
 ping 192.168.10.40   ! to SW4-PC-A
 ping 192.168.10.1    ! to SW1 SVI
 
-! From SW2-PC-B (192.168.11.20) — VLAN 11 path through SW2 as root
+! From SW2-PC-B (192.168.11.20) - VLAN 11 path through SW2 as root
 ping 192.168.11.30   ! to SW3-PC-B
 ping 192.168.11.40   ! to SW4-PC-B
 ping 192.168.11.1    ! to SW1 SVI
