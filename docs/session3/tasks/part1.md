@@ -21,7 +21,7 @@ All trunk ports should appear in the `trunking` state and show VLANs 10 and 11 i
 Confirm VLANs 10 and 11 are present and active on all switches:
 
 ```cisco
-show vlan brief
+show vlan-switch brief
 ```
 
 !!! warning "VLANs Not Showing?"

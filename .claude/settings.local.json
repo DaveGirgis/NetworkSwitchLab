@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "PowerShell(Get-Command gh -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-ChildItem \"C:\\\\Program Files\\\\GitHub CLI\\\\\" -ErrorAction SilentlyContinue; Get-ChildItem \"$env:LOCALAPPDATA\\\\Programs\\\\gh\\\\\" -ErrorAction SilentlyContinue; Get-ChildItem \"C:\\\\Users\\\\DaveG\\\\scoop\\\\shims\\\\gh.exe\" -ErrorAction SilentlyContinue)"
+    ]
+  }
+}
