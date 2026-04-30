@@ -15,7 +15,7 @@ tables, step-by-step tasks, verification commands, and troubleshooting guides.
 | [Session 1](session1/index.md) | Switching Fundamentals — VLANs & Trunking | ✅ Available |
 | [Session 2](session2/index.md) | Switching Fundamentals II — Inter-VLAN Routing | ✅ Available |
 | [Session 3](session3/index.md) | Spanning Tree Protocol — Root Election & PVST+ | ✅ Available |
-| Session 4 | Static Routing & Route Summarization | 🔜 Coming Soon |
+| Session 4 | Static Routing & Route Summarization | ✅ Available |
 | Session 5 | IPV6 Addressing | 🔜 Coming Soon |
 | Session 6 | OSPF Single Area and EIGRP | 🔜 Coming Soon |
 | Session 7 | ACLs and NAT | 🔜 Coming Soon |
