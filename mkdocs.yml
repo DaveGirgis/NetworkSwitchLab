@@ -94,7 +94,7 @@ nav:
       - Command Reference: session3/reference/commands.md
       - Troubleshooting: session3/reference/troubleshooting.md
     
-    - Session 4 — Static Routing & Route Summarization:
+  - Session 4 — Static Routing & Route Summarization:
     - Overview: session4/index.md
     - Topology: session4/topology.md
     - Addressing: session4/addressing.md
