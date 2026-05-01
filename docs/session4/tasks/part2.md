@@ -45,7 +45,7 @@ show ip route
 Each router will show:
 
 - A `C` (connected) entry for its own `/30` link subnet
-- A `C` entry for each subinterface network (192.168.10.0/24 on R1, 192.168.11.0/24 on R2)
+- A `C` entry for each SVI network (192.168.10.0/24 on R1, 192.168.11.0/24 on R2)
 
 Neither router knows about the other's LAN. That is what static routes will fix.
 
@@ -114,4 +114,4 @@ ping 192.168.10.10
 Both pings should succeed. If either fails, work through the troubleshooting guide before continuing.
 
 > [!NOTE]
-> A successful ping from a router itself does not confirm that hosts can reach each other — the source address matters. Ping from the PC (or from the router using the `source` keyword to specify the subinterface address) to validate the full path.
+> A successful ping from a router itself does not confirm that hosts can reach each other — the source address matters. Ping from the PC (or from the router using the `source` keyword to specify the SVI address, e.g. `source Vlan10`) to validate the full path.

@@ -26,7 +26,7 @@
 | Part | Title | Description |
 |------|-------|-------------|
 | Part 0 | Base Config | Hostname, global settings, and interface bringup on R1 and R2 |
-| Part 1 | LAN Configuration | VLAN creation, trunk port, and router-on-a-stick subinterfaces on each router |
+| Part 1 | LAN Configuration | VLAN creation, access port, and SVI configuration on each router |
 | Part 2 | Static Routes | Configure static routes so VLAN 10 and VLAN 11 hosts can reach each other |
 | Part 3 | Default Route & Summarization | Add a gateway of last resort and consolidate loopback networks into a summary route |
 | Verification | Final Check | Confirm full end-to-end reachability and a clean routing table |

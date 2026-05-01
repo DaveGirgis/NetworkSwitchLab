@@ -34,12 +34,12 @@ show running-config | section FastEthernet0/1
 **Fix:** Verify the full LAN configuration:
 
 ```
-show vlan brief
+show vlan-switch brief
 show interfaces Vlan10
 show running-config | section Vlan10
 ```
 
-Confirm VLAN 10 is active in `show vlan brief`, that `Fa1/1` is assigned to it, and that the SVI shows line protocol up.
+Confirm VLAN 10 is active in `show vlan-switch brief`, that `Fa1/1` is assigned to it, and that the SVI shows line protocol up.
 
 ---
 
@@ -65,10 +65,10 @@ ping 172.16.31.2
 
 ```
 show ip route
-ping 10.0.0.1 source FastEthernet0/0.10
+ping 10.0.0.1 source Vlan10
 ```
 
-Using `source` on the ping ensures the test uses a return-path that R2 knows about, not R1's own `Fa0/1` address.
+Using `source` on the ping ensures the test uses a return-path that R2 knows about — R2 has a static route to 192.168.10.0/24 via the SVI network, not to R1's `Fa0/1` address.
 
 ---
 

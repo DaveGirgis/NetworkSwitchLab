@@ -6,7 +6,7 @@
 | `show ip route static` | Filters the routing table to show only static routes |
 | `show interfaces FastEthernet0/1` | Confirms line protocol status and IP address on the point-to-point link |
 | `show interfaces Vlan10` | Confirms SVI status and IP address for VLAN 10 |
-| `show vlan brief` | Confirms VLAN existence and port assignments on NM-16ESW |
+| `show vlan-switch brief` | Confirms VLAN existence and port assignments on NM-16ESW |
 | `interface Vlan10` | Enters SVI configuration mode for VLAN 10 — provides the Layer 3 gateway for that VLAN |
 | `ip route [network] [mask] [next-hop]` | Adds a static route using next-hop IP address |
 | `ip route [network] [mask] [exit-interface]` | Adds a static route using exit interface (use with caution on multi-access links) |

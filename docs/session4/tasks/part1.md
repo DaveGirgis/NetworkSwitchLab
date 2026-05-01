@@ -18,13 +18,13 @@ exit
 Verify with:
 
 ```
-show vlan brief
+show vlan-switch brief
 ```
 
 VLAN 10 should appear as active with no ports assigned yet.
 
 > [!NOTE]
-> VLANs are stored in `vlan.dat` on the NM-16ESW, not in `running-config`. If `show running-config` does not show the VLAN, that is expected — `show vlan brief` is the correct verification command.
+> VLANs are stored in `vlan.dat` on the NM-16ESW, not in `running-config`. If `show running-config` does not show the VLAN, that is expected — `show vlan-switch brief` is the correct verification command.
 
 ---
 
@@ -42,7 +42,7 @@ exit
 Verify with:
 
 ```
-show vlan brief
+show vlan-switch brief
 ```
 
 ---
