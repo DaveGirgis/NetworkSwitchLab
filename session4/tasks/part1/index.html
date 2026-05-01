@@ -2535,12 +2535,12 @@
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>exit
 </code></pre></div>
 <p>Verify with:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>show vlan brief
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>show vlan-switch brief
 </code></pre></div>
 <p>VLAN 10 should appear as active with no ports assigned yet.</p>
 <blockquote>
 <p>[!NOTE]
-VLANs are stored in <code>vlan.dat</code> on the NM-16ESW, not in <code>running-config</code>. If <code>show running-config</code> does not show the VLAN, that is expected — <code>show vlan brief</code> is the correct verification command.</p>
+VLANs are stored in <code>vlan.dat</code> on the NM-16ESW, not in <code>running-config</code>. If <code>show running-config</code> does not show the VLAN, that is expected — <code>show vlan-switch brief</code> is the correct verification command.</p>
 </blockquote>
 <hr />
 <h2 id="task-12-create-vlans-on-r2">Task 1.2 — Create VLANs on R2</h2>
@@ -2551,7 +2551,7 @@ VLANs are stored in <code>vlan.dat</code> on the NM-16ESW, not in <code>running-
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>exit
 </code></pre></div>
 <p>Verify with:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>show vlan brief
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>show vlan-switch brief
 </code></pre></div>
 <hr />
 <h2 id="task-13-configure-the-access-port-on-r1">Task 1.3 — Configure the Access Port on R1</h2>

@@ -2486,38 +2486,38 @@
 <tr>
 <td>1</td>
 <td>VLAN 10 exists on R1</td>
-<td><code>show vlan brief</code></td>
+<td><code>show vlan-switch brief</code></td>
 <td>VLAN 10 (SALES) shown as active</td>
 </tr>
 <tr>
 <td>2</td>
 <td>VLAN 11 exists on R2</td>
-<td><code>show vlan brief</code></td>
+<td><code>show vlan-switch brief</code></td>
 <td>VLAN 11 (ENGINEERING) shown as active</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Trunk is up on R1</td>
-<td><code>show interfaces trunk</code></td>
-<td>Fa1/0 listed as trunking, VLAN 10 allowed and active</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Trunk is up on R2</td>
-<td><code>show interfaces trunk</code></td>
-<td>Fa1/0 listed as trunking, VLAN 11 allowed and active</td>
-</tr>
-<tr>
-<td>5</td>
-<td>R1 subinterface is up</td>
-<td><code>show interfaces Fa0/0.10</code></td>
+<td>SVI Vlan10 is up on R1</td>
+<td><code>show interfaces Vlan10</code></td>
 <td>Line protocol is up, IP address 192.168.10.1 assigned</td>
 </tr>
 <tr>
-<td>6</td>
-<td>R2 subinterface is up</td>
-<td><code>show interfaces Fa0/0.11</code></td>
+<td>4</td>
+<td>SVI Vlan11 is up on R2</td>
+<td><code>show interfaces Vlan11</code></td>
 <td>Line protocol is up, IP address 192.168.11.1 assigned</td>
+</tr>
+<tr>
+<td>5</td>
+<td>VLAN 10 access port active on R1</td>
+<td><code>show vlan-switch brief</code></td>
+<td>Fa1/1 listed under VLAN 10 as active</td>
+</tr>
+<tr>
+<td>6</td>
+<td>VLAN 11 access port active on R2</td>
+<td><code>show vlan-switch brief</code></td>
+<td>Fa1/1 listed under VLAN 11 as active</td>
 </tr>
 <tr>
 <td>7</td>
@@ -2559,7 +2559,7 @@
 </table>
 <hr />
 <h2 id="connectivity-test">Connectivity Test</h2>
-<p>From R1-PC-A (<code>192.168.10.10</code>), ping R2-PC-A (<code>192.168.11.10</code>). This tests the complete path: VLAN 10 host → R1 subinterface → static route → /30 link → R2 subinterface → VLAN 11 host. Both directions must succeed.</p>
+<p>From R1-PC-A (<code>192.168.10.10</code>), ping R2-PC-A (<code>192.168.11.10</code>). This tests the complete path: VLAN 10 host → R1 SVI (Vlan10) → static route → /30 link → R2 SVI (Vlan11) → VLAN 11 host. Both directions must succeed.</p>
 <p>From R1-PC-A, also ping <code>10.0.3.1</code> (the highest loopback on R2). A successful ping confirms the summary route is functioning correctly and that the default route on R1 is not masking a misconfiguration in the specific route entries.</p>
 
 

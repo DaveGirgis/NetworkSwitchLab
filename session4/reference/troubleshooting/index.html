@@ -2533,11 +2533,11 @@
 <strong>Cause 2:</strong> VLAN 10 was not created in <code>vlan database</code> mode — the SVI exists but the VLAN does not, so the interface stays down.<br />
 <strong>Cause 3:</strong> The SVI was not brought up with <code>no shutdown</code>.<br />
 <strong>Fix:</strong> Verify the full LAN configuration:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>show vlan brief
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>show vlan-switch brief
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>show interfaces Vlan10
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>show running-config | section Vlan10
 </code></pre></div>
-<p>Confirm VLAN 10 is active in <code>show vlan brief</code>, that <code>Fa1/1</code> is assigned to it, and that the SVI shows line protocol up.</p>
+<p>Confirm VLAN 10 is active in <code>show vlan-switch brief</code>, that <code>Fa1/1</code> is assigned to it, and that the SVI shows line protocol up.</p>
 <hr />
 <h2 id="show-ip-route-shows-the-static-route-but-ping-still-fails"><code>show ip route</code> shows the static route but ping still fails</h2>
 <p><strong>Symptom:</strong> The correct <code>S</code> entry appears in the routing table on both routers, but end-to-end pings fail.<br />
@@ -2553,9 +2553,9 @@
 <strong>Cause 2:</strong> The specific routes were removed before the summary was added, leaving a gap during which traffic was black-holed and the session state was not cleared.<br />
 <strong>Fix:</strong> Verify the summary covers the target range. <code>10.0.0.0/22</code> covers <code>10.0.0.0–10.0.3.255</code>. If your loopbacks are in that range and pings still fail, confirm R2 has routes back to R1's networks:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>show ip route
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ping 10.0.0.1 source FastEthernet0/0.10
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ping 10.0.0.1 source Vlan10
 </code></pre></div>
-<p>Using <code>source</code> on the ping ensures the test uses a return-path that R2 knows about, not R1's own <code>Fa0/1</code> address.</p>
+<p>Using <code>source</code> on the ping ensures the test uses a return-path that R2 knows about — R2 has a static route to 192.168.10.0/24 via the SVI network, not to R1's <code>Fa0/1</code> address.</p>
 <hr />
 <h2 id="gns3-link-shows-green-but-interface-line-protocol-stays-down">GNS3 link shows green but interface line protocol stays down</h2>
 <p><strong>Symptom:</strong> The GNS3 canvas shows a green link between R1 and R2 on <code>Fa0/1</code>, but <code>show interfaces</code> reports line protocol is down.<br />
