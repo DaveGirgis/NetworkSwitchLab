@@ -22,7 +22,7 @@ exit
 Verify VLANs exist before proceeding:
 
 ```cisco
-show vlan brief
+show vlan-switch brief
 ```
 
 Both VLANs should appear as `active`. If they do not appear, the port assignments in the base configs below will silently fail.

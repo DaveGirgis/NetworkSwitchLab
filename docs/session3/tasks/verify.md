@@ -14,7 +14,7 @@ show spanning-tree detail
 show interfaces trunk
 
 ! Confirm VLAN database
-show vlan brief
+show vlan-switch brief
 
 ! Confirm PortFast and BPDU Guard status
 show spanning-tree summary
@@ -68,7 +68,7 @@ end
 ```
 
 !!! note "VLANs in vlan.dat"
-    The `vlan database` entries for VLAN 10 (SALES) and VLAN 11 (ENGINEERING) are stored in `vlan.dat` and will not appear in `show running-config`. Verify with `show vlan brief`.
+    The `vlan database` entries for VLAN 10 (SALES) and VLAN 11 (ENGINEERING) are stored in `vlan.dat` and will not appear in `show running-config`. Verify with `show vlan-switch brief`.
 
 ### SW2 — Final Config
 
@@ -222,7 +222,7 @@ end
 
 - [ ] VLANs 10 and 11 created via `vlan database` on all switches
 - [ ] All six inter-switch trunk links verified as active
-- [ ] VLANs 10 and 11 confirmed active with `show vlan brief` on all switches
+- [ ] VLANs 10 and 11 confirmed active with `show vlan-switch brief` on all switches
 - [ ] Natural root bridge election winner identified and explained
 - [ ] Port roles (root, designated, alternate/blocked) mapped for all four switches
 - [ ] Active loop-free topology drawn on whiteboard with blocked ports marked
