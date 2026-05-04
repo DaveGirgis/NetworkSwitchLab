@@ -109,8 +109,19 @@ nav:
       - Troubleshooting: session4/reference/troubleshooting.md
 
 
-  # - Session 5 — OSPF Single-Area:
-  #   - Overview: session5/index.md
+  - Session 5 — IPv6 Addressing & Static Routing:
+    - Overview: session5/index.md
+    - Topology: session5/topology.md
+    - Addressing: session5/addressing.md
+    - Tasks:
+      - Part 0 — Base Config: session5/tasks/part0.md
+      - Part 1 — LAN Interfaces: session5/tasks/part1.md
+      - Part 2 — WAN Links: session5/tasks/part2.md
+      - Part 3 — Static Routes: session5/tasks/part3.md
+      - Verification: session5/tasks/verify.md
+    - Reference:
+      - Command Reference: session5/reference/commands.md
+      - Troubleshooting: session5/reference/troubleshooting.md
 
   # - Session 6 — EIGRP:
   #   - Overview: session6/index.md
