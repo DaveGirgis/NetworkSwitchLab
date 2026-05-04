@@ -123,8 +123,20 @@ nav:
       - Command Reference: session5/reference/commands.md
       - Troubleshooting: session5/reference/troubleshooting.md
 
-  # - Session 6 — EIGRP:
-  #   - Overview: session6/index.md
+  - Session 6 — OSPF Single Area & EIGRP:
+    - Overview: session6/index.md
+    - Topology: session6/topology.md
+    - Addressing: session6/addressing.md
+    - Tasks:
+      - Part 0 — Base Config: session6/tasks/part0.md
+      - Part 1 — Interface Addressing: session6/tasks/part1.md
+      - Part 2 — OSPF Configuration: session6/tasks/part2.md
+      - Part 3 — OSPF Verification: session6/tasks/part3.md
+      - Part 4 — EIGRP: session6/tasks/part4.md
+      - Verification: session6/tasks/verify.md
+    - Reference:
+      - Command Reference: session6/reference/commands.md
+      - Troubleshooting: session6/reference/troubleshooting.md
 
   # - Session 7 — ACLs and NAT:
   #   - Overview: session7/index.md

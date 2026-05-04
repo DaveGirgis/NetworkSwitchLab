@@ -17,7 +17,7 @@ tables, step-by-step tasks, verification commands, and troubleshooting guides.
 | [Session 3](session3/index.md) | Spanning Tree Protocol — Root Election & PVST+ | ✅ Available |
 | Session 4 | Static Routing & Route Summarization | ✅ Available |
 | [Session 5](session5/index.md) | IPv6 Addressing & Static Routing | ✅ Available |
-| Session 6 | OSPF Single Area and EIGRP | 🔜 Coming Soon |
+| [Session 6](session6/index.md) | OSPF Single Area & EIGRP | ✅ Available |
 | Session 7 | ACLs and NAT | 🔜 Coming Soon |
 | Session 8 | Capstone Troubleshooting Lab | 🔜 Coming Soon |
 

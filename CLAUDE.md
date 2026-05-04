@@ -29,7 +29,7 @@ Config saved in `.claude/launch.json`.
 | Session 3 | Spanning Tree Protocol — Root Election & PVST+ | ✅ Complete |
 | Session 4 | Static Routing & Route Summarization | ✅ Complete |
 | Session 5 | IPv6 Addressing & Static Routing | ✅ Complete |
-| Session 6 | OSPF Single Area and EIGRP | 🔜 Not started |
+| Session 6 | OSPF Single Area & EIGRP | ✅ Complete |
 | Session 7 | ACLs and NAT | 🔜 Not started |
 | Session 8 | Capstone Troubleshooting Lab | 🔜 Not started |
 
