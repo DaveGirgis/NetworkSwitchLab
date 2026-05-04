@@ -2555,15 +2555,15 @@ VLANs are stored in <code>vlan.dat</code> on the NM-16ESW, not in <code>running-
 </code></pre></div>
 <hr />
 <h2 id="task-13-configure-the-access-port-on-r1">Task 1.3 — Configure the Access Port on R1</h2>
-<p>Assign <code>Fa1/1</code> to VLAN 10. This is where R1-PC-A connects.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>interface FastEthernet1/1
+<p>Assign <code>Fa1/10</code> to VLAN 10. This is where R1-PC-A connects.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>interface FastEthernet1/10
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a> switchport mode access
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> switchport access vlan 10
 </code></pre></div>
 <hr />
 <h2 id="task-14-configure-the-access-port-on-r2">Task 1.4 — Configure the Access Port on R2</h2>
-<p>Assign <code>Fa1/1</code> to VLAN 11.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>interface FastEthernet1/1
+<p>Assign <code>Fa1/11</code> to VLAN 11.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>interface FastEthernet1/11
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a> switchport mode access
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a> switchport access vlan 11
 </code></pre></div>

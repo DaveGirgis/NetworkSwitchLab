@@ -2529,7 +2529,7 @@
 <hr />
 <h2 id="local-gateway-ping-fails-pc-cannot-reach-its-default-gateway">Local gateway ping fails — PC cannot reach its default gateway</h2>
 <p><strong>Symptom:</strong> R1-PC-A cannot ping 192.168.10.1. The SVI appears to be configured correctly.<br />
-<strong>Cause 1:</strong> The access port <code>Fa1/1</code> is not assigned to VLAN 10, so no active port exists in the VLAN and the SVI line protocol stays down.<br />
+<strong>Cause 1:</strong> The access port <code>Fa1/10</code> is not assigned to VLAN 10, so no active port exists in the VLAN and the SVI line protocol stays down.<br />
 <strong>Cause 2:</strong> VLAN 10 was not created in <code>vlan database</code> mode — the SVI exists but the VLAN does not, so the interface stays down.<br />
 <strong>Cause 3:</strong> The SVI was not brought up with <code>no shutdown</code>.<br />
 <strong>Fix:</strong> Verify the full LAN configuration:</p>
@@ -2537,7 +2537,7 @@
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>show interfaces Vlan10
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>show running-config | section Vlan10
 </code></pre></div>
-<p>Confirm VLAN 10 is active in <code>show vlan-switch brief</code>, that <code>Fa1/1</code> is assigned to it, and that the SVI shows line protocol up.</p>
+<p>Confirm VLAN 10 is active in <code>show vlan-switch brief</code>, that <code>Fa1/10</code> is assigned to it, and that the SVI shows line protocol up.</p>
 <hr />
 <h2 id="show-ip-route-shows-the-static-route-but-ping-still-fails"><code>show ip route</code> shows the static route but ping still fails</h2>
 <p><strong>Symptom:</strong> The correct <code>S</code> entry appears in the routing table on both routers, but end-to-end pings fail.<br />
