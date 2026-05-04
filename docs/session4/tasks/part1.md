@@ -49,10 +49,10 @@ show vlan-switch brief
 
 ## Task 1.3 — Configure the Access Port on R1
 
-Assign `Fa1/1` to VLAN 10. This is where R1-PC-A connects.
+Assign `Fa1/10` to VLAN 10. This is where R1-PC-A connects.
 
 ```
-interface FastEthernet1/1
+interface FastEthernet1/10
  switchport mode access
  switchport access vlan 10
 ```
@@ -61,10 +61,10 @@ interface FastEthernet1/1
 
 ## Task 1.4 — Configure the Access Port on R2
 
-Assign `Fa1/1` to VLAN 11.
+Assign `Fa1/11` to VLAN 11.
 
 ```
-interface FastEthernet1/1
+interface FastEthernet1/11
  switchport mode access
  switchport access vlan 11
 ```

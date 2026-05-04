@@ -12,8 +12,8 @@ Use the following checklist to confirm the session is complete. Every item must 
 | 2 | VLAN 11 exists on R2 | `show vlan-switch brief` | VLAN 11 (ENGINEERING) shown as active |
 | 3 | SVI Vlan10 is up on R1 | `show interfaces Vlan10` | Line protocol is up, IP address 192.168.10.1 assigned |
 | 4 | SVI Vlan11 is up on R2 | `show interfaces Vlan11` | Line protocol is up, IP address 192.168.11.1 assigned |
-| 5 | VLAN 10 access port active on R1 | `show vlan-switch brief` | Fa1/1 listed under VLAN 10 as active |
-| 6 | VLAN 11 access port active on R2 | `show vlan-switch brief` | Fa1/1 listed under VLAN 11 as active |
+| 5 | VLAN 10 access port active on R1 | `show vlan-switch brief` | Fa1/10 listed under VLAN 10 as active |
+| 6 | VLAN 11 access port active on R2 | `show vlan-switch brief` | Fa1/11 listed under VLAN 11 as active |
 | 7 | Point-to-point link is up | `show interfaces Fa0/1` | Line protocol is up on both R1 and R2 |
 | 8 | R1 routing table has static route to VLAN 11 | `show ip route` | S entry for 192.168.11.0/24 via /30 next-hop |
 | 9 | R2 routing table has static route to VLAN 10 | `show ip route` | S entry for 192.168.10.0/24 via /30 next-hop |

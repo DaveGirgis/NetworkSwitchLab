@@ -5,7 +5,10 @@
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
       "PowerShell(Get-Command gh -ErrorAction SilentlyContinue)",
-      "PowerShell(Get-ChildItem \"C:\\\\Program Files\\\\GitHub CLI\\\\\" -ErrorAction SilentlyContinue; Get-ChildItem \"$env:LOCALAPPDATA\\\\Programs\\\\gh\\\\\" -ErrorAction SilentlyContinue; Get-ChildItem \"C:\\\\Users\\\\DaveG\\\\scoop\\\\shims\\\\gh.exe\" -ErrorAction SilentlyContinue)"
+      "PowerShell(Get-ChildItem \"C:\\\\Program Files\\\\GitHub CLI\\\\\" -ErrorAction SilentlyContinue; Get-ChildItem \"$env:LOCALAPPDATA\\\\Programs\\\\gh\\\\\" -ErrorAction SilentlyContinue; Get-ChildItem \"C:\\\\Users\\\\DaveG\\\\scoop\\\\shims\\\\gh.exe\" -ErrorAction SilentlyContinue)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(\"/c/Program Files/GitHub CLI/gh.exe\" auth status)",
+      "Bash(git push *)"
     ]
   }
 }

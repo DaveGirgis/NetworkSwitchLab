@@ -28,7 +28,7 @@ show running-config | section FastEthernet0/1
 ## Local gateway ping fails — PC cannot reach its default gateway
 
 **Symptom:** R1-PC-A cannot ping 192.168.10.1. The SVI appears to be configured correctly.  
-**Cause 1:** The access port `Fa1/1` is not assigned to VLAN 10, so no active port exists in the VLAN and the SVI line protocol stays down.  
+**Cause 1:** The access port `Fa1/10` is not assigned to VLAN 10, so no active port exists in the VLAN and the SVI line protocol stays down.  
 **Cause 2:** VLAN 10 was not created in `vlan database` mode — the SVI exists but the VLAN does not, so the interface stays down.  
 **Cause 3:** The SVI was not brought up with `no shutdown`.  
 **Fix:** Verify the full LAN configuration:
@@ -39,7 +39,7 @@ show interfaces Vlan10
 show running-config | section Vlan10
 ```
 
-Confirm VLAN 10 is active in `show vlan-switch brief`, that `Fa1/1` is assigned to it, and that the SVI shows line protocol up.
+Confirm VLAN 10 is active in `show vlan-switch brief`, that `Fa1/10` is assigned to it, and that the SVI shows line protocol up.
 
 ---
 
