@@ -1,6 +1,6 @@
 # Part 0 — Base Configuration
 
-**Objective:** Apply hostname and global settings, enable IPv6 forwarding, and bring up physical interfaces on R1, R2, and R3 before any addressing is configured.
+**Objective:** Apply hostname, disable DNS lookup, and enable IPv6 forwarding on R1, R2, and R3 before any addressing is configured.
 
 ---
 
@@ -13,11 +13,6 @@ enable
 configure terminal
 hostname R1
 no ip domain-lookup
-enable secret cisco
-line console 0
- logging synchronous
- exec-timeout 0 0
-exit
 ```
 
 Repeat on R2 (`hostname R2`) and R3 (`hostname R3`).
@@ -37,34 +32,7 @@ ipv6 unicast-routing
 
 ---
 
-## Task 0.3 — Bring Up Physical Interfaces
-
-The 3725's built-in FastEthernet interfaces are administratively shut down by default. Bring up both interfaces on each router.
-
-**On R1 and R3:**
-
-```
-interface FastEthernet0/0
- no shutdown
-interface FastEthernet0/1
- no shutdown
-```
-
-**On R2:**
-
-```
-interface FastEthernet0/0
- no shutdown
-interface FastEthernet0/1
- no shutdown
-```
-
-> [!NOTE]
-> Interfaces must be up before IPv6 addresses can come online. Bring them up now so the addresses configured in Parts 1 and 2 activate immediately.
-
----
-
-## Task 0.4 — Save Configuration
+## Task 0.3 — Save Configuration
 
 ```
 end
