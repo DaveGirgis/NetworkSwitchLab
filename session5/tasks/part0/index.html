@@ -2705,21 +2705,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#task-03-bring-up-physical-interfaces" class="md-nav__link">
+  <a href="#task-03-save-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Task 0.3 — Bring Up Physical Interfaces
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#task-04-save-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Task 0.4 — Save Configuration
+        Task 0.3 — Save Configuration
       
     </span>
   </a>
@@ -3510,7 +3499,7 @@
 
 
 <h1 id="part-0-base-configuration">Part 0 — Base Configuration</h1>
-<p><strong>Objective:</strong> Apply hostname and global settings, enable IPv6 forwarding, and bring up physical interfaces on R1, R2, and R3 before any addressing is configured.</p>
+<p><strong>Objective:</strong> Apply hostname, disable DNS lookup, and enable IPv6 forwarding on R1, R2, and R3 before any addressing is configured.</p>
 <hr />
 <h2 id="task-01-hostname-and-global-settings">Task 0.1 — Hostname and Global Settings</h2>
 <p>Apply to each device. Substitute the correct hostname.</p>
@@ -3518,11 +3507,6 @@
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>configure terminal
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>hostname R1
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>no ip domain-lookup
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>enable secret cisco
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>line console 0
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a> logging synchronous
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a> exec-timeout 0 0
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>exit
 </code></pre></div>
 <p>Repeat on R2 (<code>hostname R2</code>) and R3 (<code>hostname R3</code>).</p>
 <hr />
@@ -3535,28 +3519,9 @@
 If you skip this step, routers will accept IPv6 addresses on their interfaces but will silently drop any packet that needs to be forwarded. All pings between different subnets will fail, and <code>show ipv6 route</code> will show connected routes only. This is the single most common mistake in a first IPv6 lab.</p>
 </blockquote>
 <hr />
-<h2 id="task-03-bring-up-physical-interfaces">Task 0.3 — Bring Up Physical Interfaces</h2>
-<p>The 3725's built-in FastEthernet interfaces are administratively shut down by default. Bring up both interfaces on each router.</p>
-<p><strong>On R1 and R3:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>interface FastEthernet0/0
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a> no shutdown
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>interface FastEthernet0/1
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a> no shutdown
-</code></pre></div>
-<p><strong>On R2:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>interface FastEthernet0/0
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a> no shutdown
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>interface FastEthernet0/1
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a> no shutdown
-</code></pre></div>
-<blockquote>
-<p>[!NOTE]
-Interfaces must be up before IPv6 addresses can come online. Bring them up now so the addresses configured in Parts 1 and 2 activate immediately.</p>
-</blockquote>
-<hr />
-<h2 id="task-04-save-configuration">Task 0.4 — Save Configuration</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>end
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>write memory
+<h2 id="task-03-save-configuration">Task 0.3 — Save Configuration</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>end
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>write memory
 </code></pre></div>
 <p>Repeat on all three routers before continuing to Part 1.</p>
 
