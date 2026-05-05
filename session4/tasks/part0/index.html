@@ -2222,10 +2222,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#task-02-bring-up-physical-interfaces" class="md-nav__link">
+  <a href="#task-02-bring-up-the-wan-interface" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Task 0.2 — Bring Up Physical Interfaces
+        Task 0.2 — Bring Up the WAN Interface
       
     </span>
   </a>
@@ -3499,7 +3499,7 @@
 
 
 <h1 id="part-0-base-configuration">Part 0 — Base Configuration</h1>
-<p><strong>Objective:</strong> Apply hostname, disable DNS lookup, set enable secret, and configure console logging on R1 and R2 before any routing or switching configuration begins.</p>
+<p><strong>Objective:</strong> Apply hostname and disable DNS lookup on R1 and R2 before any routing or switching configuration begins.</p>
 <hr />
 <h2 id="task-01-hostname-and-global-settings">Task 0.1 — Hostname and Global Settings</h2>
 <p>Apply to each device. Substitute the correct hostname for each.</p>
@@ -3507,24 +3507,17 @@
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>configure terminal
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>hostname R1
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>no ip domain-lookup
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>enable secret cisco
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>line console 0
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a> logging synchronous
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a> exec-timeout 0 0
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>exit
 </code></pre></div>
 <p>Repeat on R2 with <code>hostname R2</code>.</p>
 <hr />
-<h2 id="task-02-bring-up-physical-interfaces">Task 0.2 — Bring Up Physical Interfaces</h2>
-<p>The 3725's built-in FastEthernet interfaces are administratively shut down by default. Bring up <code>Fa0/0</code> and <code>Fa0/1</code> on both routers.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>interface FastEthernet0/0
+<h2 id="task-02-bring-up-the-wan-interface">Task 0.2 — Bring Up the WAN Interface</h2>
+<p>The 3725's built-in FastEthernet interfaces are administratively shut down by default. Bring up <code>Fa0/1</code> on both routers — this is the WAN link configured in Part 2.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>interface FastEthernet0/1
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a> no shutdown
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>interface FastEthernet0/1
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a> no shutdown
 </code></pre></div>
 <blockquote>
 <p>[!NOTE]
-NM-16ESW interfaces (<code>Fa1/x</code>) do not require <code>no shutdown</code> — they come up automatically when GNS3 links are connected. The built-in router interfaces (<code>Fa0/0</code>, <code>Fa0/1</code>) must be explicitly enabled.</p>
+NM-16ESW interfaces (<code>Fa1/x</code>) do not require <code>no shutdown</code> — they come up automatically when GNS3 links are connected. The built-in router interfaces (<code>Fa0/x</code>) must be explicitly enabled.</p>
 </blockquote>
 <hr />
 <h2 id="task-03-save-configuration">Task 0.3 — Save Configuration</h2>
