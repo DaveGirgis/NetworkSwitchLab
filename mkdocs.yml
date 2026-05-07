@@ -137,8 +137,20 @@ nav:
       - Command Reference: session6/reference/commands.md
       - Troubleshooting: session6/reference/troubleshooting.md
 
-  # - Session 7 — ACLs and NAT:
-  #   - Overview: session7/index.md
+  - Session 7 — ACLs and NAT:
+    - Overview: session7/index.md
+    - Topology: session7/topology.md
+    - Addressing: session7/addressing.md
+    - Tasks:
+      - Part 0 — Base Config: session7/tasks/part0.md
+      - Part 1 — LAN & Interface Addressing: session7/tasks/part1.md
+      - Part 2 — ACL Fundamentals: session7/tasks/part2.md
+      - Part 3 — NAT Overload: session7/tasks/part3.md
+      - Part 4 — Extended ACLs: session7/tasks/part4.md
+      - Verification: session7/tasks/verify.md
+    - Reference:
+      - Command Reference: session7/reference/commands.md
+      - Troubleshooting: session7/reference/troubleshooting.md
 
   # - Session 8 — Capstone:
   #   - Overview: session8/index.md
