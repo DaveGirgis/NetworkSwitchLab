@@ -49,21 +49,21 @@ markdown_extensions:
 nav:
   - Home: index.md
 
-  - Session 1 — Switching Fundamentals:
+  - Session 1 — Simulation Platform Introduction:
     - Overview: session1/index.md
     - Topology: session1/topology.md
-    - Addressing: session1/addressing.md
+    - Platform Setup: session1/addressing.md
     - Tasks:
-      - Task 1 — Base Config: session1/tasks/task1.md
-      - Task 2 — VLANs: session1/tasks/task2.md
-      - Task 3 — Trunk Port: session1/tasks/task3.md
-      - Task 4 — Inter-VLAN Routing: session1/tasks/task4.md
+      - Part 0 — Installation & Architecture: session1/tasks/part0.md
+      - Part 1 — Adding Devices: session1/tasks/part1.md
+      - Part 2 — Connecting Devices: session1/tasks/part2.md
+      - Part 3 — Console Access: session1/tasks/part3.md
       - Verification: session1/tasks/verify.md
     - Reference:
       - Command Reference: session1/reference/commands.md
       - Troubleshooting: session1/reference/troubleshooting.md
 
-  - Session 2 — Switching Fundamentals II:
+  - Session 2 — Switching Fundamentals:
     - Overview: session2/index.md
     - Introduction: session2/introduction.md
     - Topology: session2/topology.md

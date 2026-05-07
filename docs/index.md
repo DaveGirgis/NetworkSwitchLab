@@ -12,8 +12,8 @@ tables, step-by-step tasks, verification commands, and troubleshooting guides.
 
 | Session | Topic | Status |
 |---------|-------|--------|
-| [Session 1](session1/index.md) | Switching Fundamentals — VLANs & Trunking | ✅ Available |
-| [Session 2](session2/index.md) | Switching Fundamentals II — Inter-VLAN Routing | ✅ Available |
+| [Session 1](session1/index.md) | Simulation Platform Introduction | ✅ Available |
+| [Session 2](session2/index.md) | Switching Fundamentals — VLANs & Inter-VLAN Routing | ✅ Available |
 | [Session 3](session3/index.md) | Spanning Tree Protocol — Root Election & PVST+ | ✅ Available |
 | [Session 4](session4/index.md) | Static Routing & Route Summarization | ✅ Available |
 | [Session 5](session5/index.md) | IPv6 Addressing & Static Routing | ✅ Available |

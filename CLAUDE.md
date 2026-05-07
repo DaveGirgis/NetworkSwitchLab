@@ -24,8 +24,8 @@ Config saved in `.claude/launch.json`.
 
 | Session | Topic | Status |
 |---------|-------|--------|
-| Session 1 | Switching Fundamentals — VLANs & Trunking | ✅ Complete |
-| Session 2 | Switching Fundamentals II — Inter-VLAN Routing | ✅ Complete |
+| Session 1 | Simulation Platform Introduction | ✅ Complete |
+| Session 2 | Switching Fundamentals — VLANs & Inter-VLAN Routing | ✅ Complete |
 | Session 3 | Spanning Tree Protocol — Root Election & PVST+ | ✅ Complete |
 | Session 4 | Static Routing & Route Summarization | ✅ Complete |
 | Session 5 | IPv6 Addressing & Static Routing | ✅ Complete |
