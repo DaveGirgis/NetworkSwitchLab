@@ -26,7 +26,7 @@ interface FastEthernet0/0
  ip address 10.0.12.2 255.255.255.252
  no shutdown
 interface FastEthernet0/1
- ip address 10.0.23.2 255.255.255.252
+ ip address 10.0.23.2 255.255.255.248
  no shutdown
 interface Loopback0
  ip address 192.168.2.1 255.255.255.0
@@ -41,7 +41,7 @@ interface Loopback0
 
 ```
 interface FastEthernet0/1
- ip address 10.0.23.3 255.255.255.252
+ ip address 10.0.23.3 255.255.255.248
  no shutdown
 interface FastEthernet0/0
  ip address 192.168.3.1 255.255.255.0
@@ -114,7 +114,14 @@ ping 10.0.12.2
 ping 10.0.23.2
 ```
 
-Both should succeed. If either fails, check that both ends of the link share the same `/30` subnet and have `no shutdown`.
+Both should succeed. If either fails, check that both ends of the link share the same subnet and have `no shutdown`.
 
 > [!WARNING]
 > Do not proceed to Part 2 until all interface pings succeed. OSPF will not form neighbors if there is a Layer 3 reachability problem on the WAN link.
+
+```
+end
+write memory
+```
+
+Repeat on all three routers before continuing to Part 2.

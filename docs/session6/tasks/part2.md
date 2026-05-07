@@ -24,7 +24,7 @@ router ospf 1
  passive-interface Loopback0
  network 192.168.2.0 0.0.0.255 area 0
  network 10.0.12.0 0.0.0.3 area 0
- network 10.0.23.0 0.0.0.3 area 0
+ network 10.0.23.0 0.0.0.7 area 0
 ```
 
 ---
@@ -36,7 +36,7 @@ router ospf 1
  router-id 3.3.3.3
  passive-interface FastEthernet0/0
  network 192.168.3.0 0.0.0.255 area 0
- network 10.0.23.0 0.0.0.3 area 0
+ network 10.0.23.0 0.0.0.7 area 0
 ```
 
 ---
@@ -54,6 +54,7 @@ A wildcard mask is the bitwise inverse of a subnet mask. Bits set to `0` must ma
 | Prefix | Subnet Mask | Wildcard Mask |
 |--------|-------------|---------------|
 | /24 | 255.255.255.0 | 0.0.0.255 |
+| /29 | 255.255.255.248 | 0.0.0.7 |
 | /30 | 255.255.255.252 | 0.0.0.3 |
 
 The `network` statement matches any interface whose IP address falls within the specified range and places it into the stated OSPF area.
