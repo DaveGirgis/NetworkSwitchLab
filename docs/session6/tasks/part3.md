@@ -54,7 +54,7 @@ show ip route ospf
 On R1, you should see OSPF routes (`O`) to:
 - `192.168.2.0/24` (R2's loopback LAN) via `10.0.12.2`
 - `192.168.3.0/24` (R3's LAN) via `10.0.12.2`
-- `10.0.23.0/30` (R2–R3 WAN link) via `10.0.12.2`
+- `10.0.23.0/29` (R2–R3 WAN link) via `10.0.12.2`
 
 The `[110/X]` notation shows OSPF's administrative distance (110) and metric (cost). The cost is calculated from the cumulative bandwidth of outgoing interfaces — lower bandwidth = higher cost.
 
