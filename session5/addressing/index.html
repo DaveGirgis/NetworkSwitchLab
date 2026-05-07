@@ -2463,11 +2463,28 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#link-local-addresses" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commonly-used-ipv6-prefixes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Link-Local Addresses
+        Commonly Used IPv6 Prefixes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commonly Used IPv6 Prefixes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#link-local-fe8010" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Link-Local — fe80::/10
       
     </span>
   </a>
@@ -2475,10 +2492,54 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#the-documentation-prefix" class="md-nav__link">
+  <a href="#unique-local-addresses-fd008" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Documentation Prefix
+        Unique Local Addresses — fd00::/8
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-unicast-20003" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Unicast — 2000::/3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loopback-1128" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loopback — ::1/128
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multicast-ff008" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multicast — ff00::/8
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-reference-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference Table
       
     </span>
   </a>
@@ -3528,10 +3589,138 @@
 </code></pre></div>
 <h3 id="prefix-length">Prefix Length</h3>
 <p>IPv6 uses the same CIDR slash notation as IPv4. A <code>/64</code> prefix means the first 64 bits identify the network and the last 64 bits are the host portion — exactly like a <code>/24</code> in IPv4, but with far more host space.</p>
-<h3 id="link-local-addresses">Link-Local Addresses</h3>
-<p>Every IPv6-enabled interface automatically generates a <strong>link-local address</strong> starting with <code>fe80::</code>. These are used for neighbor discovery and routing protocol traffic. They are not routable beyond a single link and will appear in <code>show ipv6 interface</code> output alongside the global unicast address you configure. This is normal and expected.</p>
-<h3 id="the-documentation-prefix">The Documentation Prefix</h3>
-<p><code>2001:db8::/32</code> is reserved by IANA for documentation and examples (RFC 3849). It will never appear on the public internet, making it the correct choice for lab guides.</p>
+<hr />
+<h2 id="commonly-used-ipv6-prefixes">Commonly Used IPv6 Prefixes</h2>
+<p>IPv6 reserves distinct address ranges for specific purposes, similar to how IPv4 sets aside 10.0.0.0/8 for private use and 127.0.0.0/8 for loopback. The table at the end of this section is a quick reference; the subsections below explain what you will actually encounter.</p>
+<h3 id="link-local-fe8010">Link-Local — <code>fe80::/10</code></h3>
+<p>Every IPv6-enabled interface <strong>automatically generates</strong> a link-local address the moment you enable IPv6 — no configuration required. The address always starts with <code>fe80</code> and the host portion is derived from the interface's MAC address using the EUI-64 algorithm: the MAC is split in half, the two-byte sequence <code>ff:fe</code> is inserted in the middle, and the 7th bit of the first byte is flipped. Modern operating systems often substitute a random host ID instead to improve privacy.</p>
+<p>Link-local addresses are <strong>never forwarded by a router</strong>. They exist purely for on-link communication:</p>
+<ul>
+<li><strong>Neighbor Discovery Protocol (NDP)</strong> — IPv6's replacement for ARP; resolves addresses and detects duplicate IPs</li>
+<li><strong>Router Advertisement / Router Solicitation</strong> — how hosts learn their default gateway without DHCP</li>
+<li><strong>Routing protocol hellos</strong> — OSPFv3 and EIGRPv6 source their hello packets from <code>fe80::</code> addresses</li>
+</ul>
+<p>You will always see a <code>fe80::</code> address alongside any global unicast address in <code>show ipv6 interface brief</code>. This is expected and correct — every interface has at least one link-local address.</p>
+<p>The IPv4 analogue is <code>169.254.0.0/16</code> (APIPA), though link-local is far more important in IPv6 because it is used intentionally, not just as a fallback.</p>
+<h3 id="unique-local-addresses-fd008">Unique Local Addresses — <code>fd00::/8</code></h3>
+<p>Unique Local Addresses (ULAs) are IPv6's equivalent of IPv4 private space. RFC 4193 defines the full range as <code>fc00::/7</code>, but the <code>fd</code> half (<code>fd00::/8</code>) is what you actually configure — the <code>fc</code> half is reserved for future use.</p>
+<table>
+<thead>
+<tr>
+<th>IPv4 Private Range</th>
+<th>IPv6 ULA Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10.0.0.0/8</td>
+<td>fd00::/8</td>
+</tr>
+<tr>
+<td>172.16.0.0/12</td>
+<td>(same range, different prefix)</td>
+</tr>
+<tr>
+<td>192.168.0.0/16</td>
+<td>(same range, different prefix)</td>
+</tr>
+</tbody>
+</table>
+<p>ULAs are routable within an organization or site but are not announced to the public internet. The specification recommends generating a random 40-bit Global ID (bits 80-41 of the address) to ensure your internal prefixes are unique if two sites ever merge. In lab work a fixed prefix like <code>fd00:1::/48</code> or <code>fd12:3456::/48</code> is fine.</p>
+<p>Common uses: internal lab topologies, home networks, VPN tunnel endpoints, and any scenario where you want private IPv6 addressing without requesting a public allocation.</p>
+<h3 id="global-unicast-20003">Global Unicast — <code>2000::/3</code></h3>
+<p>Global Unicast Addresses are the publicly routable IPv6 space, spanning <code>2000::</code> through <code>3fff:ffff:...</code>. Your ISP delegates a block (typically a <code>/48</code> or <code>/56</code>) and you subnet it into <code>/64</code>s for each LAN segment.</p>
+<p>The documentation prefix <code>2001:db8::/32</code> lives inside this range. It is permanently reserved by IANA (RFC 3849) and will never appear on the live internet, making it the correct choice for lab guides, textbooks, and RFCs. All addresses in this session use <code>2001:db8:0:x::/64</code>.</p>
+<h3 id="loopback-1128">Loopback — <code>::1/128</code></h3>
+<p><code>::1</code> is the IPv6 loopback address — the equivalent of <code>127.0.0.1</code>. It always refers to the local device and is never sent on the wire. You will see it in <code>show ipv6 route</code> as a local route. Cisco IOS loopback <em>interfaces</em> use global unicast or link-local addresses, not <code>::1</code>.</p>
+<h3 id="multicast-ff008">Multicast — <code>ff00::/8</code></h3>
+<p>IPv6 eliminates broadcast entirely. Everything that IPv4 would broadcast is instead sent to a specific multicast group. The <code>ff00::/8</code> range covers all multicast; the <code>ff02::</code> subset is link-local multicast (not forwarded by routers).</p>
+<p>Addresses you will see on a Cisco router:</p>
+<table>
+<thead>
+<tr>
+<th>Address</th>
+<th>Used By</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ff02::1</code></td>
+<td>All IPv6 nodes on the link</td>
+</tr>
+<tr>
+<td><code>ff02::2</code></td>
+<td>All IPv6 routers on the link</td>
+</tr>
+<tr>
+<td><code>ff02::5</code> / <code>ff02::6</code></td>
+<td>OSPFv3 hello packets</td>
+</tr>
+<tr>
+<td><code>ff02::a</code></td>
+<td>EIGRPv6 hello packets</td>
+</tr>
+<tr>
+<td><code>ff02::1:2</code></td>
+<td>DHCPv6 relay agents</td>
+</tr>
+<tr>
+<td><code>ff02::1:ffxx:xxxx</code></td>
+<td>Solicited-node multicast (NDP — replaces ARP)</td>
+</tr>
+</tbody>
+</table>
+<p>The solicited-node address is constructed from the last 24 bits of a unicast address. NDP uses it to resolve a known IPv6 address to a MAC address without flooding the entire link.</p>
+<hr />
+<h3 id="quick-reference-table">Quick Reference Table</h3>
+<table>
+<thead>
+<tr>
+<th>Prefix</th>
+<th>Scope</th>
+<th>IPv4 Analogue</th>
+<th>Common Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fe80::/10</code></td>
+<td>Link-local</td>
+<td>169.254.0.0/16</td>
+<td>NDP, routing protocol hellos, default gateway discovery</td>
+</tr>
+<tr>
+<td><code>fd00::/8</code></td>
+<td>Unique Local</td>
+<td>10.0.0.0/8, 192.168.0.0/16</td>
+<td>Private / lab / VPN networks</td>
+</tr>
+<tr>
+<td><code>2000::/3</code></td>
+<td>Global Unicast</td>
+<td>Public IP space</td>
+<td>Internet-routable addresses</td>
+</tr>
+<tr>
+<td><code>2001:db8::/32</code></td>
+<td>Documentation</td>
+<td>N/A</td>
+<td>Lab guides and RFC examples</td>
+</tr>
+<tr>
+<td><code>::1/128</code></td>
+<td>Loopback</td>
+<td>127.0.0.1</td>
+<td>Local software testing</td>
+</tr>
+<tr>
+<td><code>ff00::/8</code></td>
+<td>Multicast</td>
+<td>224.0.0.0/4</td>
+<td>NDP, routing protocols, DHCPv6</td>
+</tr>
+</tbody>
+</table>
 
 
 
