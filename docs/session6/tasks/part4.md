@@ -46,7 +46,7 @@ router eigrp 100
  passive-interface Loopback0
  network 192.168.2.0 0.0.0.255
  network 10.0.12.0 0.0.0.3
- network 10.0.23.0 0.0.0.3
+ network 10.0.23.0 0.0.0.7
 ```
 
 ---
@@ -59,7 +59,7 @@ router eigrp 100
  no auto-summary
  passive-interface FastEthernet0/0
  network 192.168.3.0 0.0.0.255
- network 10.0.23.0 0.0.0.3
+ network 10.0.23.0 0.0.0.7
 ```
 
 ---
@@ -111,7 +111,7 @@ EIGRP routes appear with the `D` prefix (from DUAL — the Diffusing Update ALgo
 ```
 D    192.168.2.0/24 [90/2297856] via 10.0.12.2, FastEthernet0/1
 D    192.168.3.0/24 [90/2809856] via 10.0.12.2, FastEthernet0/1
-D    10.0.23.0/30   [90/2681856] via 10.0.12.2, FastEthernet0/1
+D    10.0.23.0/29   [90/2681856] via 10.0.12.2, FastEthernet0/1
 ```
 
 The `[90/X]` notation shows EIGRP's administrative distance (90 — lower than OSPF's 110, meaning EIGRP is preferred if both run simultaneously) and the composite metric. EIGRP's metric is calculated from bandwidth and delay by default and produces large numbers compared to OSPF costs.
