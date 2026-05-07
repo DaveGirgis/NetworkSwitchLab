@@ -13,10 +13,7 @@ enable
 configure terminal
 hostname R1
 no ip domain-lookup
-enable secret cisco
-line console 0
- logging synchronous
- exec-timeout 0 0
+
 exit
 ```
 
