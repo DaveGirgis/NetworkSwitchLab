@@ -3325,7 +3325,7 @@
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a> ip address 10.0.12.2 255.255.255.252
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a> no shutdown
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>interface FastEthernet0/1
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a> ip address 10.0.23.2 255.255.255.252
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a> ip address 10.0.23.2 255.255.255.248
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a> no shutdown
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>interface Loopback0
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a> ip address 192.168.2.1 255.255.255.0
@@ -3337,7 +3337,7 @@
 <hr />
 <h2 id="task-13-configure-r3-interfaces">Task 1.3 — Configure R3 Interfaces</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>interface FastEthernet0/1
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a> ip address 10.0.23.3 255.255.255.252
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a> ip address 10.0.23.3 255.255.255.248
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a> no shutdown
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>interface FastEthernet0/0
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a> ip address 192.168.3.1 255.255.255.0
@@ -3380,11 +3380,15 @@
 <p><strong>From R3:</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ping 10.0.23.2
 </code></pre></div></p>
-<p>Both should succeed. If either fails, check that both ends of the link share the same <code>/30</code> subnet and have <code>no shutdown</code>.</p>
+<p>Both should succeed. If either fails, check that both ends of the link share the same subnet and have <code>no shutdown</code>.</p>
 <blockquote>
 <p>[!WARNING]
 Do not proceed to Part 2 until all interface pings succeed. OSPF will not form neighbors if there is a Layer 3 reachability problem on the WAN link.</p>
 </blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>end
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>write memory
+</code></pre></div>
+<p>Repeat on all three routers before continuing to Part 2.</p>
 
 
 

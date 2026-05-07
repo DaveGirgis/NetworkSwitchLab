@@ -3271,19 +3271,19 @@
     subgraph R2["R2 — Cisco 3725\nRouter ID: 2.2.2.2"]
         R2_WAN1["Fa0/0\n10.0.12.2/30"]
         R2_LO["Lo0\n192.168.2.1/24\nSimulated LAN"]
-        R2_WAN2["Fa0/1\n10.0.23.2/30"]
+        R2_WAN2["Fa0/1\n10.0.23.2/29"]
     end
 
     subgraph R3["R3 — Cisco 3725\nRouter ID: 3.3.3.3"]
-        R3_WAN["Fa0/1\n10.0.23.3/30"]
+        R3_WAN["Fa0/1\n10.0.23.3/29"]
         R3_LAN["Fa0/0\n192.168.3.1/24\nLAN gateway"]
     end
 
     PCA["R1-PC-A\n192.168.1.10/24"] --&gt; R1_LAN
     R1_WAN &lt;--&gt;|"10.0.12.0/30"| R2_WAN1
-    R2_WAN2 &lt;--&gt;|"10.0.23.0/30"| R3_WAN
+    R2_WAN2 &lt;--&gt;|"10.0.23.0/29"| R3_WAN
     R3_LAN --&gt; PCB["R3-PC-A\n192.168.3.10/24"]</code></pre>
-<p>R1 and R3 each serve a local LAN segment via <code>Fa0/0</code>, with PCs connecting directly to the router interface. R2 is the transit router — it has no physical LAN; instead, a <code>Loopback0</code> interface simulates a connected network that OSPF and EIGRP will advertise. The two WAN links use <code>/30</code> subnets from the <code>10.0.0.0/8</code> space.</p>
+<p>R1 and R3 each serve a local LAN segment via <code>Fa0/0</code>, with PCs connecting directly to the router interface. R2 is the transit router — it has no physical LAN; instead, a <code>Loopback0</code> interface simulates a connected network that OSPF and EIGRP will advertise. The R1–R2 WAN link uses a <code>/30</code> subnet; the R2–R3 WAN link uses a <code>/29</code> subnet so that <code>.2</code> (R2) and <code>.3</code> (R3) are both valid host addresses.</p>
 <hr />
 <h2 id="link-table">Link Table</h2>
 <table>
@@ -3320,7 +3320,7 @@
 <td>Fa0/1</td>
 <td>R3</td>
 <td>Fa0/1</td>
-<td>10.0.23.0/30</td>
+<td>10.0.23.0/29</td>
 </tr>
 <tr>
 <td>4</td>

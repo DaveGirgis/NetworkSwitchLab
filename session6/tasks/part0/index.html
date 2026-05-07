@@ -2949,28 +2949,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#task-02-bring-up-physical-interfaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Task 0.2 — Bring Up Physical Interfaces
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#task-03-save-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Task 0.3 — Save Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3275,7 +3253,7 @@
 
 
 <h1 id="part-0-base-configuration">Part 0 — Base Configuration</h1>
-<p><strong>Objective:</strong> Apply hostname and global settings, then bring up all physical interfaces on R1, R2, and R3 before any IP addressing is configured.</p>
+<p><strong>Objective:</strong> Apply hostname and global settings to R1, R2, and R3 before any IP addressing is configured.</p>
 <hr />
 <h2 id="task-01-hostname-and-global-settings">Task 0.1 — Hostname and Global Settings</h2>
 <p>Apply to each device, substituting the correct hostname.</p>
@@ -3290,31 +3268,6 @@
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>exit
 </code></pre></div>
 <p>Repeat on R2 (<code>hostname R2</code>) and R3 (<code>hostname R3</code>).</p>
-<hr />
-<h2 id="task-02-bring-up-physical-interfaces">Task 0.2 — Bring Up Physical Interfaces</h2>
-<p>The 3725's built-in FastEthernet interfaces are administratively shut down by default. Bring up both on each router.</p>
-<p><strong>On R1 and R3:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>interface FastEthernet0/0
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a> no shutdown
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>interface FastEthernet0/1
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a> no shutdown
-</code></pre></div>
-<p><strong>On R2:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>interface FastEthernet0/0
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a> no shutdown
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>interface FastEthernet0/1
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a> no shutdown
-</code></pre></div>
-<blockquote>
-<p>[!NOTE]
-Loopback interfaces (<code>Loopback0</code>) come up automatically when created — they do not require <code>no shutdown</code>. R2's loopback will be configured in Part 1.</p>
-</blockquote>
-<hr />
-<h2 id="task-03-save-configuration">Task 0.3 — Save Configuration</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>end
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>write memory
-</code></pre></div>
-<p>Repeat on all three routers before continuing to Part 1.</p>
 
 
 

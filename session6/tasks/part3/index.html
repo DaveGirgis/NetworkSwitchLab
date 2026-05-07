@@ -3341,7 +3341,7 @@ On a point-to-point <code>/30</code> link, OSPF still runs DR/BDR election but i
 <p>On R1, you should see OSPF routes (<code>O</code>) to:
 - <code>192.168.2.0/24</code> (R2's loopback LAN) via <code>10.0.12.2</code>
 - <code>192.168.3.0/24</code> (R3's LAN) via <code>10.0.12.2</code>
-- <code>10.0.23.0/30</code> (R2–R3 WAN link) via <code>10.0.12.2</code></p>
+- <code>10.0.23.0/29</code> (R2–R3 WAN link) via <code>10.0.12.2</code></p>
 <p>The <code>[110/X]</code> notation shows OSPF's administrative distance (110) and metric (cost). The cost is calculated from the cumulative bandwidth of outgoing interfaces — lower bandwidth = higher cost.</p>
 <hr />
 <h2 id="task-34-end-to-end-connectivity-test">Task 3.4 — End-to-End Connectivity Test</h2>

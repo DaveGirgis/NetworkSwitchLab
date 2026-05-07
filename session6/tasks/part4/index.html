@@ -3419,7 +3419,7 @@
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a> passive-interface Loopback0
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a> network 192.168.2.0 0.0.0.255
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a> network 10.0.12.0 0.0.0.3
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a> network 10.0.23.0 0.0.0.3
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a> network 10.0.23.0 0.0.0.7
 </code></pre></div>
 <hr />
 <h2 id="task-44-configure-eigrp-on-r3">Task 4.4 — Configure EIGRP on R3</h2>
@@ -3428,7 +3428,7 @@
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> no auto-summary
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a> passive-interface FastEthernet0/0
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a> network 192.168.3.0 0.0.0.255
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a> network 10.0.23.0 0.0.0.3
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a> network 10.0.23.0 0.0.0.7
 </code></pre></div>
 <hr />
 <h2 id="understanding-the-configuration">Understanding the Configuration</h2>
@@ -3457,7 +3457,7 @@
 <p>EIGRP routes appear with the <code>D</code> prefix (from DUAL — the Diffusing Update ALgorithm). On R1 you should see:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>D    192.168.2.0/24 [90/2297856] via 10.0.12.2, FastEthernet0/1
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>D    192.168.3.0/24 [90/2809856] via 10.0.12.2, FastEthernet0/1
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>D    10.0.23.0/30   [90/2681856] via 10.0.12.2, FastEthernet0/1
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>D    10.0.23.0/29   [90/2681856] via 10.0.12.2, FastEthernet0/1
 </code></pre></div>
 <p>The <code>[90/X]</code> notation shows EIGRP's administrative distance (90 — lower than OSPF's 110, meaning EIGRP is preferred if both run simultaneously) and the composite metric. EIGRP's metric is calculated from bandwidth and delay by default and produces large numbers compared to OSPF costs.</p>
 <hr />
