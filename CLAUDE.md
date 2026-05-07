@@ -6,7 +6,7 @@ A CCNA-style lab guide series for adult professionals learning enterprise networ
 
 Repository: `https://github.com/DaveGirgis/NetworkSwitchLab`  
 Working directory: `C:\Users\DaveG\Downloads\Github\NetworkSwitchLab`  
-Branch: `main` (commits go directly to main — no PR workflow currently in use)
+Branch: `main` — always commit directly to main and push. Do not create feature branches or pull requests. This is a small documentation repo where branching adds unnecessary overhead.
 
 ---
 
