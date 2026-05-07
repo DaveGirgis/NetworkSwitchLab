@@ -13,7 +13,6 @@ enable
 configure terminal
 hostname R1
 no ip domain-lookup
-
 exit
 ```
 
