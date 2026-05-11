@@ -137,6 +137,20 @@ nav:
       - Command Reference: session6/reference/commands.md
       - Troubleshooting: session6/reference/troubleshooting.md
 
+  - Session 6a — BGP (eBGP):
+    - Overview: session6a/index.md
+    - Topology: session6a/topology.md
+    - Addressing: session6a/addressing.md
+    - Tasks:
+      - Part 0 — Base Config: session6a/tasks/part0.md
+      - Part 1 — Interface Addressing: session6a/tasks/part1.md
+      - Part 2 — BGP Configuration: session6a/tasks/part2.md
+      - Part 3 — BGP Verification: session6a/tasks/part3.md
+      - Verification: session6a/tasks/verify.md
+    - Reference:
+      - Command Reference: session6a/reference/commands.md
+      - Troubleshooting: session6a/reference/troubleshooting.md
+
   - Session 7 — ACLs and NAT:
     - Overview: session7/index.md
     - Topology: session7/topology.md

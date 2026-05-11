@@ -18,6 +18,7 @@ tables, step-by-step tasks, verification commands, and troubleshooting guides.
 | [Session 4](session4/index.md) | Static Routing & Route Summarization | ✅ Available |
 | [Session 5](session5/index.md) | IPv6 Addressing & Static Routing | ✅ Available |
 | [Session 6](session6/index.md) | OSPF Single Area & EIGRP | ✅ Available |
+| [Session 6a](session6a/index.md) | BGP (eBGP) — Self-Directed Lab | ✅ Available |
 | [Session 7](session7/index.md) | ACLs and NAT | ✅ Available |
 | Session 8 | Capstone Troubleshooting Lab | 🔜 Coming Soon |
 
