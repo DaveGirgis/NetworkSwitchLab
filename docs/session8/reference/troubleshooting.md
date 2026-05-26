@@ -8,20 +8,20 @@ This page is the post-lab answer key. Read it after you have attempted to find a
 
 **Symptom:** PC-E (172.16.40.10) cannot ping 172.16.40.1 or any other address. All other hosts at the right site work normally. `show ip interface brief` on R3 shows Vlan40 as down/down.
 
-**Cause:** The NM-16ESW access port connected to PC-E (Fa1/40) is assigned to VLAN 1 instead of VLAN 40. Because no active port is a member of VLAN 40, the SVI (`interface Vlan40`) has no reason to come up. PC-E's traffic reaches the switch fabric but is placed into VLAN 1, where there is no SVI and no gateway.
+**Cause:** The NM-16ESW access port connected to PC-E (Fa1/4) is assigned to VLAN 1 instead of VLAN 40. Because no active port is a member of VLAN 40, the SVI (`interface Vlan40`) has no reason to come up. PC-E's traffic reaches the switch fabric but is placed into VLAN 1, where there is no SVI and no gateway.
 
 **Diagnosis:**
 ```
 show vlan-switch brief
 ```
 
-Fa1/40 will appear under VLAN 1 instead of VLAN 40.
+Fa1/4 will appear under VLAN 1 instead of VLAN 40.
 
 **Fix:**
 ```
 enable
 configure terminal
-interface Fa1/40
+interface Fa1/4
 switchport access vlan 40
 ```
 
