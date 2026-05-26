@@ -4692,7 +4692,7 @@
 <h1 id="topology">Topology</h1>
 <pre class="mermaid"><code>graph LR
     subgraph R1["R1 — Cisco 3725 (Left Site)"]
-        R1_NM["NM-16ESW\nFa1/10 - PC-A, VLAN 10\nFa1/20 - PC-B, VLAN 10\nFa1/30 - PC-C, VLAN 20"]
+        R1_NM["NM-16ESW\nFa1/10 - PC-A, VLAN 10\nFa1/11 - PC-B, VLAN 10\nFa1/12 - PC-C, VLAN 20"]
         R1_V10["SVI Vlan10\n172.16.10.1/24"]
         R1_V20["SVI Vlan20\n172.16.20.1/24"]
         R1_WAN["Fa0/1\n10.1.12.1/30"]
@@ -4706,7 +4706,7 @@
     end
 
     subgraph R3["R3 — Cisco 3725 (Right Site)"]
-        R3_NM["NM-16ESW\nFa1/30 - PC-D, VLAN 30\nFa1/40 - PC-E, VLAN 40"]
+        R3_NM["NM-16ESW\nFa1/3 - PC-D, VLAN 30\nFa1/4 - PC-E, VLAN 40"]
         R3_V30["SVI Vlan30\n172.16.30.1/24"]
         R3_V40["SVI Vlan40\n172.16.40.1/24"]
         R3_WAN["Fa0/0\n10.1.23.2/30"]
@@ -4747,7 +4747,7 @@
 <tr>
 <td>2</td>
 <td>R1</td>
-<td>Fa1/20</td>
+<td>Fa1/11</td>
 <td>PC-B</td>
 <td>NIC</td>
 <td>172.16.10.0/24 (VLAN 10)</td>
@@ -4755,7 +4755,7 @@
 <tr>
 <td>3</td>
 <td>R1</td>
-<td>Fa1/30</td>
+<td>Fa1/12</td>
 <td>PC-C</td>
 <td>NIC</td>
 <td>172.16.20.0/24 (VLAN 20)</td>
@@ -4779,7 +4779,7 @@
 <tr>
 <td>6</td>
 <td>R3</td>
-<td>Fa1/30</td>
+<td>Fa1/3</td>
 <td>PC-D</td>
 <td>NIC</td>
 <td>172.16.30.0/24 (VLAN 30)</td>
@@ -4787,7 +4787,7 @@
 <tr>
 <td>7</td>
 <td>R3</td>
-<td>Fa1/40</td>
+<td>Fa1/4</td>
 <td>PC-E</td>
 <td>NIC</td>
 <td>172.16.40.0/24 (VLAN 40)</td>
@@ -4812,7 +4812,7 @@ R1 and R3 use SVIs for inter-VLAN routing — there is no trunk link between the
 <tr>
 <td>R1</td>
 <td>Left-site router — VLAN 10 and VLAN 20</td>
-<td>Fa1/10, Fa1/20 (VLAN 10 access); Fa1/30 (VLAN 20 access); Fa0/1 (WAN to R2)</td>
+<td>Fa1/10, Fa1/11 (VLAN 10 access); Fa1/12 (VLAN 20 access); Fa0/1 (WAN to R2)</td>
 </tr>
 <tr>
 <td>R2</td>
@@ -4822,7 +4822,7 @@ R1 and R3 use SVIs for inter-VLAN routing — there is no trunk link between the
 <tr>
 <td>R3</td>
 <td>Right-site router — VLAN 30 and VLAN 40</td>
-<td>Fa1/30 (VLAN 30 access); Fa1/40 (VLAN 40 access); Fa0/0 (WAN to R2)</td>
+<td>Fa1/3 (VLAN 30 access); Fa1/4 (VLAN 40 access); Fa0/0 (WAN to R2)</td>
 </tr>
 <tr>
 <td>PC-A</td>
@@ -4832,22 +4832,22 @@ R1 and R3 use SVIs for inter-VLAN routing — there is no trunk link between the
 <tr>
 <td>PC-B</td>
 <td>Left-site Sales host</td>
-<td>VPCS on R1 Fa1/20</td>
+<td>VPCS on R1 Fa1/11</td>
 </tr>
 <tr>
 <td>PC-C</td>
 <td>Left-site Management host</td>
-<td>VPCS on R1 Fa1/30</td>
+<td>VPCS on R1 Fa1/12</td>
 </tr>
 <tr>
 <td>PC-D</td>
 <td>Right-site Sales host</td>
-<td>VPCS on R3 Fa1/30</td>
+<td>VPCS on R3 Fa1/3</td>
 </tr>
 <tr>
 <td>PC-E</td>
 <td>Right-site Management host</td>
-<td>VPCS on R3 Fa1/40</td>
+<td>VPCS on R3 Fa1/4</td>
 </tr>
 </tbody>
 </table>
